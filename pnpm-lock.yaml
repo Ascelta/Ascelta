@@ -367,6 +367,9 @@ importers:
 
   packages/shared:
     dependencies:
+      '@core/domain':
+        specifier: workspace:*
+        version: link:../domain
       react-native-app-auth:
         specifier: 8.0.3
         version: 8.0.3(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.1.0))

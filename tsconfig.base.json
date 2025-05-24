@@ -6,25 +6,25 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "paths": {
-      "@app/*": [
-        "apps/app/src/*"
-      ],
-      "@core/shared/*": [
-        "packages/shared/src/*"
-      ],
-      "@core/infrastructure/*": [
-        "packages/infrastructure/src/*"
-      ],
-      "@core/presentation/*": [
-        "packages/presentation/src/*"
-      ],
-      "@core/usecase/*": [
-        "packages/usecase/src/*"
-      ],
-      "@core/domain/*": [
-        "packages/domain/src/*"
-      ]
-    }
+//    "paths": {
+//      "@app/*": [
+//        "apps/app/src/*"
+//      ],
+//      "@core/shared/*": [
+//        "packages/shared/src/*"
+//      ],
+//      "@core/infrastructure/*": [
+//        "packages/infrastructure/src/*"
+//      ],
+//      "@core/presentation/*": [
+//        "packages/presentation/src/*"
+//      ],
+//      "@core/usecase/*": [
+//        "packages/usecase/src/*"
+//      ],
+//      "@core/domain/*": [
+//        "packages/domain/src/*"
+//      ]
+//    }
   }
 }

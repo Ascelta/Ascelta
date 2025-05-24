@@ -6,6 +6,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@core/domain": "workspace:*",
     "react-native-app-auth": "8.0.3",
     "react-native-config": "1.5.5"
   }

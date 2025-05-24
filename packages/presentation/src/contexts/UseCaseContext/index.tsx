@@ -1,12 +1,14 @@
 import React, { ReactNode, createContext, useContext } from 'react';
-import { FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase } from '@core/usecase';
+import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase } from '@core/usecase';
 import { useCaseContainer } from '../../composition';
 
 export interface UseCaseContainer {
+  readonly checkScreenNameExistenceUseCase: CheckScreenNameExistenceUseCase;
   readonly findSuiteUserUseCase: FindSuiteUserUseCase;
   readonly getCurrentUserIdUseCase: GetCurrentUserIdUseCase;
   readonly signInUseCase: SignInUseCase;
   readonly signOutUseCase: SignOutUseCase;
+  readonly updateScreenNameUseCase: UpdateScreenNameUseCase;
 }
 
 const UseCaseContext = createContext<UseCaseContainer>(useCaseContainer);

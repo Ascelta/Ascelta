@@ -38,7 +38,7 @@ const customTokens = createTokens({
     // Semantic
     success: '#42E38D',
     warning: '#FFB020',
-    danger: '#FF4B6E',
+    error: '#FF4B6E',
 
     // Brand gradient
     brandGradient: 'linear-gradient(130deg,#A95AFF 0%,#91A3FF 50%,#47D8DC 100%)',

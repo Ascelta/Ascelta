@@ -19,21 +19,12 @@
       }
     }
   },
-  "editScreenName": "ハンドルを編集",
-  "editScreenNameRegexp": "ハンドルには、半角英数字、アンダースコア（_）のみが利用できます。",
-  "editScreenNameRegexpError": "使用できない文字が含まれています。",
-  "editScreenNameLength": "ハンドルは、{min}文字以上{max}文字以内で入力してください。",
-  "@editScreenNameLength": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
-  "editScreenNameExistenceError": "この ハンドル は既に使用されています。",
+  "EDIT_SCREEN_NAME": "ユーザー名を編集",
+  "EDIT_SCREEN_NAME_REGEXP": "ユーザー名には、半角英数字、アンダースコア（_）のみが利用できます。",
+  "EDIT_SCREEN_NAME_REGEXP_ERROR": "ユーザー名に使用できない文字が含まれています。",
+  "EDIT_SCREEN_NAME_LENGTH": "ユーザー名は、{{min}}文字以上{{max}}文字以内で入力してください。",
+  "EDIT_SCREEN_NAME_MIN_LENGTH_ERROR": "ユーザー名は、{{min}}文字以上で入力してください。",
+  "EDIT_SCREEN_NAME_EXISTENCE_ERROR": "このユーザー名は既に使用されています。",
   "editSelfIntroduction": "自己紹介を編集",
   "editSelfIntroductionLength": "自己紹介は、{max}文字以内で入力してください。",
   "@editSelfIntroductionLength": {

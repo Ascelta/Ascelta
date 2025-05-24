@@ -19,21 +19,12 @@
       }
     }
   },
-  "editScreenName": "Edit handle",
-  "editScreenNameRegexp": "Handle can only contain alphanumeric characters and underscores (_).",
-  "editScreenNameRegexpError": "Contains invalid characters.",
-  "editScreenNameLength": "Handle must be between {min} and {max} characters.",
-  "@editScreenNameLength": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
-  "editScreenNameExistenceError": "This handle is already in use.",
+  "EDIT_SCREEN_NAME": "Edit Username",
+  "EDIT_SCREEN_NAME_REGEXP": "Username can only contain alphanumeric characters and underscores (_).",
+  "EDIT_SCREEN_NAME_REGEXP_ERROR": "Contains invalid characters.",
+  "EDIT_SCREEN_NAME_LENGTH": "Username must be between {{min}} and {{max}} characters.",
+  "EDIT_SCREEN_NAME_MIN_LENGTH_ERROR": "Username must be at least {{min}} characters.",
+  "EDIT_SCREEN_NAME_EXISTENCE_ERROR": "This Username is already in use.",
   "editSelfIntroduction": "Edit self-introduction",
   "editSelfIntroductionLength": "Self-introduction must be within {max} characters.",
   "@editSelfIntroductionLength": {
