@@ -16,15 +16,8 @@
   "EDIT_SCREEN_NAME_LENGTH": "ユーザー名は{{min}}文字以上{{max}}文字以内で入力してください。",
   "EDIT_SCREEN_NAME_MIN_LENGTH_ERROR": "ユーザー名は、{{min}}文字以上で入力してください。",
   "EDIT_SCREEN_NAME_EXISTENCE_ERROR": "このユーザー名は既に使用されています。",
-  "editSelfIntroduction": "自己紹介を編集",
-  "editSelfIntroductionLength": "自己紹介は、{max}文字以内で入力してください。",
-  "@editSelfIntroductionLength": {
-    "placeholders": {
-      "max": {
-        "type": "int"
-      }
-    }
-  },
+  "EDIT_SELF_INTRODUCTION": "自己紹介を編集",
+  "EDIT_SELF_INTRODUCTION_LENGTH": "自己紹介は{{max}}文字以内で入力してください。",
   "updateUserProfileError": "プロフィールの更新に失敗しました。",
   "share": "共有",
   "POST": "投稿",

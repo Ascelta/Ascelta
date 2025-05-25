@@ -16,15 +16,8 @@
   "EDIT_SCREEN_NAME_LENGTH": "Username must be between {{min}} and {{max}} characters.",
   "EDIT_SCREEN_NAME_MIN_LENGTH_ERROR": "Username must be at least {{min}} characters.",
   "EDIT_SCREEN_NAME_EXISTENCE_ERROR": "This Username is already in use.",
-  "editSelfIntroduction": "Edit self-introduction",
-  "editSelfIntroductionLength": "Self-introduction must be within {max} characters.",
-  "@editSelfIntroductionLength": {
-    "placeholders": {
-      "max": {
-        "type": "int"
-      }
-    }
-  },
+  "EDIT_SELF_INTRODUCTION": "Edit self-introduction",
+  "EDIT_SELF_INTRODUCTION_LENGTH": "Please enter a self-introduction of no more than {{max}} characters.",
   "updateUserProfileError": "Failed to update profile.",
   "share": "Share",
   "POST": "Post",

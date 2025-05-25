@@ -1,17 +1,17 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { TamaguiProvider } from 'tamagui';
 import config from '../../../../../tamagui.config.ts';
-import { EditDisplayName } from './index';
+import { EditSelfIntroduction } from './index';
 
-const displayNameMaxLength = 20;
+const selfIntroductionMaxLength = 160;
 const mockUserId = 'test-user-id';
-const mockDisplayName = 'display_name';
+const mockSelfIntroduction = 'self_introduction';
 
 // モックの設定
 jest.mock('@core/shared/src/configs/appConfig', () => ({
   __esModule: true,
   AppConfig: {
-    DISPLAY_NAME_MAX_LENGTH: displayNameMaxLength,
+    DISPLAY_NAME_MAX_LENGTH: selfIntroductionMaxLength,
   },
 }));
 jest.mock('../../../../stores/userStore', () => {
@@ -24,7 +24,7 @@ jest.mock('../../../../stores/userStore', () => {
           [mockUserId]: {
             data: {
               vUserDetail: {
-                display_name: mockDisplayName,
+                self_introduction: mockSelfIntroduction,
               },
             },
             isLoading: false,
@@ -65,28 +65,23 @@ jest.mock('react-i18next', () => ({
 const mockUpdateUserProfile = require('../../../../stores/userStore').mockUpdateUserProfile;
 const mockBack = require('solito/router').mockBack;
 
-describe('EditDisplayName', () => {
+describe('EditSelfIntroduction', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
   });
 
   const renderComponent = () => {
     return act(() => {
       return render(
         <TamaguiProvider config={config}>
-          <EditDisplayName />
+          <EditSelfIntroduction />
         </TamaguiProvider>,
       );
     });
   };
 
   describe('正常系', () => {
-    it('表示名が変更されていない場合は更新処理が呼ばれないこと', () => {
+    it('自己紹介が変更されていない場合は更新処理が呼ばれないこと', () => {
       renderComponent();
       const doneButton = screen.getByText('DONE');
 
@@ -99,29 +94,25 @@ describe('EditDisplayName', () => {
 
     it('文字数カウンターが正しく表示されること', () => {
       renderComponent();
-      const input = screen.getByPlaceholderText('DISPLAY_NAME');
+      const input = screen.getByPlaceholderText('SELF_INTRODUCTION');
 
       // 入力
       const text = 'test123';
       fireEvent.change(input, { target: { value: 'test123' } });
 
       // 文字数が正しく表示されていることを確認
-      expect(screen.queryByText(`${text.length}/${displayNameMaxLength}`)).toBeInTheDocument();
+      waitFor(() => {
+        expect(screen.getByText(`${text.length}/${selfIntroductionMaxLength}`)).toBeInTheDocument();
+      });
     });
 
-    it('ステータスが成功の場合に更新処理が呼ばれること', async () => {
+    it('自己紹介が変更されている場合は更新処理が呼ばれること', async () => {
       renderComponent();
-      const input = screen.getByPlaceholderText('DISPLAY_NAME');
+      const input = screen.getByPlaceholderText('SELF_INTRODUCTION');
       const doneButton = screen.getByText('DONE');
 
       // 入力
-      fireEvent.change(input, { target: { value: 'new_display_name' } });
-
-      // タイマーを進める
-      jest.advanceTimersByTime(500);
-
-      // エラーメッセージが表示されていないことを確認
-      expect(screen.queryByText('REQUIRED_ERROR')).not.toBeInTheDocument();
+      fireEvent.change(input, { target: { value: 'new_self_introduction' } });
 
       expect(mockUpdateUserProfile).not.toHaveBeenCalled();
       // 完了ボタンをタップ
@@ -129,35 +120,38 @@ describe('EditDisplayName', () => {
 
       // updateUserProfileが正しい引数で呼ばれたことを確認
       expect(mockUpdateUserProfile).toHaveBeenCalledTimes(1);
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, 'new_display_name', undefined);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, 'new_self_introduction');
 
-      jest.useRealTimers();
       waitFor(() => {
         // backが呼ばれたことを確認
         expect(mockBack).toHaveBeenCalledTimes(1);
       });
     });
-  });
 
-  describe('準正常系', () => {
-    it('1文字も入力されていない場合は、必須入力のエラーが表示されていること', async () => {
+    it('1文字も入力されていない場合は、空文字で更新されていること', async () => {
       renderComponent();
-      const input = screen.getByPlaceholderText('DISPLAY_NAME');
+      const input = screen.getByPlaceholderText('SELF_INTRODUCTION');
 
       // 最小文字数未満の入力
       fireEvent.change(input, { target: { value: '' } });
 
-      // タイマーを進める
-      jest.advanceTimersByTime(500);
-
       // エラーメッセージが表示されていることを確認
-      expect(await screen.findByText('REQUIRED_ERROR')).toBeInTheDocument();
+      waitFor(() => {
+        expect(screen.getByText('REQUIRED_ERROR')).toBeInTheDocument();
+      });
 
       const doneButton = screen.getByText('DONE');
       // 完了ボタンをタップ
       fireEvent.click(doneButton);
-      // updateUserProfileが呼ばれていないことを確認
-      expect(mockUpdateUserProfile).not.toHaveBeenCalled();
+
+      // updateUserProfileが正しい引数で呼ばれたことを確認
+      expect(mockUpdateUserProfile).toHaveBeenCalledTimes(1);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, '');
+
+      waitFor(() => {
+        // backが呼ばれたことを確認
+        expect(mockBack).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

@@ -16,10 +16,10 @@ type Status = 'success' | 'exists' | 'min-length' | 'invalid-format' | undefined
 const StyledInput = styled(Input, {
   flex: 1,
   width: '100%',
-  borderWidth: 0,
   padding: 0,
   fontSize: '$5',
   color: '$color',
+  borderWidth: 0,
 });
 
 export const EditScreenName: React.FC = () => {

@@ -10,17 +10,16 @@ import { Header } from '../../../../components/layouts/headers/Header';
 import { useAuth } from '../../../../contexts/AuthContext';
 import { useUserStore } from '../../../../stores/userStore';
 
-export const EditDisplayName: React.FC = () => {
+export const EditSelfIntroduction: React.FC = () => {
   const { t } = useTranslation();
   const { back } = useRouter();
   const { userId } = useAuth();
-  const displayName = useUserStore(state => (userId ? state.userMap[userId]?.data!.vUserDetail?.display_name : undefined));
+  const selfIntroduction = useUserStore(state => (userId ? state.userMap[userId]?.data!.vUserDetail?.self_introduction : undefined));
   const isLoading = useUserStore(state => (userId ? state.userMap[userId]?.isLoading : false));
   const updateUserProfile = useUserStore(state => state.updateUserProfile);
   const inputRef = useRef<Input>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [newDisplayName, setNewDisplayName] = useState(displayName ?? '');
-  const [isValid, setIsValid] = useState<boolean>(true);
+  const [newSelfIntroduction, setNewSelfIntroduction] = useState(selfIntroduction ?? '');
 
   useEffect(() => {
     // コンポーネントマウント時にキーボードを表示
@@ -31,60 +30,38 @@ export const EditDisplayName: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const onChangeText = (text: string) => {
-    setNewDisplayName(text);
-    setIsValid(text.length > 0);
-  };
-
   const onDone = async () => {
     if (!userId) {
       return;
     }
-    if (!isValid) {
-      return;
-    }
-    if (displayName !== newDisplayName) {
-      await updateUserProfile(userId, newDisplayName, undefined);
+    if (selfIntroduction !== newSelfIntroduction) {
+      await updateUserProfile(userId, undefined, newSelfIntroduction);
     }
     back();
-  };
-
-  const getBorderColor = () => {
-    if (!isValid) {
-      return '$error';
-    }
-    return isFocused ? '$primary' : '$subtle';
-  };
-
-  const getErrorMessage = () => {
-    if (!isValid) {
-      return t('REQUIRED_ERROR');
-    }
-    return '';
   };
 
   return (
     <>
       <YStack flex={1}>
-        <Header title={t('EDIT_DISPLAY_NAME')} leading={<CancelButton />} action={<DoneButton disabled={!isValid} isLoading={isLoading} onDone={onDone} />} />
+        <Header title={t('EDIT_SELF_INTRODUCTION')} leading={<CancelButton />} action={<DoneButton isLoading={isLoading} onDone={onDone} />} />
         <Spacer size='$4' />
         <YStack paddingTop='$2' paddingHorizontal='$4' gap='$4'>
           <TextInput
-            borderColor={getBorderColor()}
-            maxLength={AppConfig.DISPLAY_NAME_MAX_LENGTH}
+            borderColor={isFocused ? '$primary' : '$subtle'}
+            multiline
+            numberOfLines={6}
+            maxLength={AppConfig.SELF_INTRODUCTION_MAX_LENGTH}
             disabled={isLoading}
             ref={inputRef}
-            value={newDisplayName}
-            onChangeText={onChangeText}
-            placeholder={t('DISPLAY_NAME')}
-            returnKeyType='done'
+            value={newSelfIntroduction}
+            onChangeText={setNewSelfIntroduction}
+            placeholder={t('SELF_INTRODUCTION')}
             onSubmitEditing={onDone}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            errorMessage={getErrorMessage()}
           />
           <YStack gap='$2'>
-            <Text color='$subtle'>{t('EDIT_DISPLAY_NAME_LENGTH', { max: AppConfig.DISPLAY_NAME_MAX_LENGTH })}</Text>
+            <Text color='$subtle'>{t('EDIT_SELF_INTRODUCTION_LENGTH', { max: AppConfig.SELF_INTRODUCTION_MAX_LENGTH })}</Text>
           </YStack>
         </YStack>
       </YStack>

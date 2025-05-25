@@ -40,7 +40,7 @@ export const ProfileEdit: React.FC = () => {
               </ShimmerRectangle>
             </View>
             <Separator />
-            <View>
+            <View onPress={() => push('/profile/edit/self-introduction')}>
               <Text color='$subtle'>{t('SELF_INTRODUCTION')}</Text>
               <Spacer size='$1' />
               <ShimmerRectangle visible={!!vUserDetail}>
