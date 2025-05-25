@@ -18,7 +18,7 @@ describe('<UseCaseProvider/>', () => {
       const wrapper: React.FC<PropsWithChildren> = ({ children }) => <UseCaseProvider>{children}</UseCaseProvider>;
 
       const { result } = renderHook(() => useUseCases(), { wrapper });
-      expect(result.current).toEqual(useCaseContainer);
+      expect(result.current).toStrictEqual(useCaseContainer);
     });
 
     it('container で個別の useCase を差し替えられること', () => {
@@ -26,7 +26,7 @@ describe('<UseCaseProvider/>', () => {
       const wrapper: React.FC<PropsWithChildren> = ({ children }) => <UseCaseProvider container={{ signInUseCase: fakeSignIn as any }}>{children}</UseCaseProvider>;
 
       const { result } = renderHook(() => useUseCases(), { wrapper });
-      expect(result.current).toEqual({
+      expect(result.current).toStrictEqual({
         ...useCaseContainer,
         signInUseCase: fakeSignIn,
       });

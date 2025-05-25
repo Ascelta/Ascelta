@@ -9,8 +9,6 @@ export class AppConfig {
   static SCREEN_NAME_MIN_LENGTH = 4;
   /// Screen Name の最大文字数
   static SCREEN_NAME_MAX_LENGTH = 16;
-  /// 表示名の最小文字数
-  static DISPLAY_NAME_MIN_LENGTH = 3;
   /// 表示名の最大文字数
   static DISPLAY_NAME_MAX_LENGTH = 20;
   /// 自己紹介の最大行数

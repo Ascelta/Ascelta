@@ -4,7 +4,7 @@ import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, useTheme } from 'tamagui';
 import { AppConfig } from '@core/shared';
-import { EditScreenName, ProfileEdit, Setting, SignIn, Theme, useAuth } from '@core/presentation';
+import { EditDisplayName, EditScreenName, ProfileEdit, Setting, SignIn, Theme, useAuth } from '@core/presentation';
 import { BottomTabs } from './BottomTabs';
 
 const Stack = createNativeStackNavigator<{
@@ -12,6 +12,7 @@ const Stack = createNativeStackNavigator<{
   SignedIn: undefined;
   ProfileEdit: undefined;
   EditScreenName: undefined;
+  EditDisplayName: undefined;
   Setting: undefined;
   NotFound: undefined;
 }>();
@@ -54,6 +55,7 @@ export const Navigation: React.FC<Props> = ({ theme }) => {
               },
               ProfileEdit: 'profile/edit',
               EditScreenName: 'profile/edit/screen-name',
+              EditDisplayName: 'profile/edit/display-name',
               Setting: 'setting',
               NotFound: '*',
             },
@@ -93,6 +95,7 @@ const SignedInStack = () => {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name='ProfileEdit' component={ProfileEdit} />
         <Stack.Screen name='EditScreenName' component={EditScreenName} />
+        <Stack.Screen name='EditDisplayName' component={EditDisplayName} />
         <Stack.Screen name='Setting' component={Setting} />
       </Stack.Group>
     </>

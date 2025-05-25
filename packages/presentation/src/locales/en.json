@@ -1,24 +1,15 @@
 {
   "you": "You",
   "required": "Required",
+  "REQUIRED_ERROR": "This field is required.",
   "confirm": "Confirm",
   "takePhoto": "Take a photo",
   "selectFromLibrary": "Select from library",
   "deleteImage": "Delete image",
   "EDIT": "Edit",
   "EDIT_PROFILE": "Edit profile",
-  "editDisplayName": "Edit display name",
-  "editDisplayNameLength": "Display name must be between {min} and {max} characters.",
-  "@editDisplayNameLength": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
+  "EDIT_DISPLAY_NAME": "Edit display name",
+  "EDIT_DISPLAY_NAME_LENGTH": "Please enter a display name of no more than {{max}} characters.",
   "EDIT_SCREEN_NAME": "Edit Username",
   "EDIT_SCREEN_NAME_REGEXP": "Username can only contain alphanumeric characters and underscores (_).",
   "EDIT_SCREEN_NAME_REGEXP_ERROR": "Contains invalid characters.",

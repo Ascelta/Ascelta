@@ -94,10 +94,13 @@ export const EditScreenName: React.FC = () => {
     if (!userId) {
       return;
     }
+    if (screenName === newScreenName) {
+      back();
+      return;
+    }
     if (status !== 'success') {
       return;
     }
-    inputRef.current?.blur();
     await updateScreenName(userId, newScreenName);
     back();
   };
@@ -140,7 +143,11 @@ export const EditScreenName: React.FC = () => {
   return (
     <>
       <YStack flex={1}>
-        <Header title={t('EDIT_SCREEN_NAME')} leading={<CancelButton />} action={<DoneButton disabled={status !== 'success'} isLoading={isLoading} onDone={onDone} />} />
+        <Header
+          title={t('EDIT_SCREEN_NAME')}
+          leading={<CancelButton />}
+          action={<DoneButton disabled={screenName !== newScreenName && status !== 'success'} isLoading={isLoading} onDone={onDone} />}
+        />
         <Spacer size='$4' />
         <YStack paddingTop='$2' paddingHorizontal='$4' gap='$4'>
           <YStack gap='$2'>
@@ -166,9 +173,9 @@ export const EditScreenName: React.FC = () => {
               {status === 'exists' || status === 'min-length' || status === 'invalid-format' ? <XCircle size={18} color='$error' /> : null}
             </XStack>
             <YStack>
-              <XStack justifyContent='space-between' alignItems='center'>
+              <XStack justifyContent='space-between' alignItems='center' paddingHorizontal='$2'>
                 <View flex={1}>{getErrorMessage()}</View>
-                <Text paddingRight='$2' color={status === 'min-length' ? '$error' : undefined}>
+                <Text color={status === 'min-length' ? '$error' : undefined}>
                   {newScreenName.length}/{AppConfig.SCREEN_NAME_MAX_LENGTH}
                 </Text>
               </XStack>

@@ -15,15 +15,43 @@ type State = {
 };
 
 type Action = {
+  loadingByUserId: (userId: string) => void;
+  errorByUserId: (userId: string, error: Error) => void;
   fetchUser: (userId: string) => Promise<void>;
   updateScreenName: (userId: string, screenName: string) => Promise<void>;
+  updateUserProfile: (userId: string, displayName?: string, selfIntroduction?: string) => Promise<void>;
 };
 
 export const useUserStore = create<State & Action>((set, get) => {
-  const { findSuiteUserUseCase, updateScreenNameUseCase } = useUseCases();
+  const { findSuiteUserUseCase, updateScreenNameUseCase, updateUserProfileUseCase } = useUseCases();
   return {
     userMap: {},
     userIds: [],
+    loadingByUserId: (userId: string) => {
+      set(state => ({
+        ...state,
+        userMap: {
+          ...state.userMap,
+          [userId]: {
+            ...state.userMap[userId],
+            isLoading: true,
+          },
+        },
+      }));
+    },
+    errorByUserId: (userId: string, error: Error) => {
+      set(state => ({
+        ...state,
+        userMap: {
+          ...state.userMap,
+          [userId]: {
+            ...state.userMap[userId],
+            isLoading: false,
+            error,
+          },
+        },
+      }));
+    },
     fetchUser: async (userId: string) => {
       try {
         set(state => ({
@@ -45,17 +73,8 @@ export const useUserStore = create<State & Action>((set, get) => {
       }
     },
     updateScreenName: async (userId: string, screenName: string) => {
-      set(state => ({
-        ...state,
-        userMap: {
-          ...state.userMap,
-          [userId]: {
-            ...state.userMap[userId],
-            isLoading: true,
-          },
-        },
-      }));
       const state = get();
+      state.loadingByUserId(userId);
       const data = state.userMap[userId];
       if (!data || !data.data) {
         throw new Error(`User data for userId ${userId} not found in userMap.`);
@@ -69,30 +88,47 @@ export const useUserStore = create<State & Action>((set, get) => {
               ...state.userMap,
               [userId]: {
                 ...data,
-                data: {
-                  ...data.data,
-                  vUserDetail: {
-                    ...data.data!.vUserDetail,
-                    screen_name: screenName,
-                  },
-                },
+                data: new SuiteUser({
+                  ...data.data!.vUserDetail,
+                  screen_name: screenName,
+                }),
                 isLoading: false,
               },
             },
           };
         });
       } catch (error) {
-        set(state => ({
-          ...state,
-          userMap: {
-            ...state.userMap,
-            [userId]: {
-              ...state.userMap[userId],
-              isLoading: false,
-              error: error as Error,
+        state.errorByUserId(userId, error as Error);
+      }
+    },
+    updateUserProfile: async (userId: string, displayName?: string, selfIntroduction?: string) => {
+      const state = get();
+      state.loadingByUserId(userId);
+      const data = state.userMap[userId];
+      if (!data || !data.data) {
+        throw new Error(`User data for userId ${userId} not found in userMap.`);
+      }
+      try {
+        const tUserProfile = await updateUserProfileUseCase.execute(userId, displayName, selfIntroduction);
+        set(state => {
+          return {
+            ...state,
+            userMap: {
+              ...state.userMap,
+              [userId]: {
+                ...data,
+                data: new SuiteUser({
+                  ...data.data!.vUserDetail,
+                  display_name: tUserProfile.display_name,
+                  self_introduction: tUserProfile.self_introduction,
+                }),
+                isLoading: false,
+              },
             },
-          },
-        }));
+          };
+        });
+      } catch (error) {
+        state.errorByUserId(userId, error as Error);
       }
     },
   };

@@ -32,7 +32,7 @@ export const ProfileEdit: React.FC = () => {
               </ShimmerRectangle>
             </View>
             <Separator />
-            <View>
+            <View onPress={() => push('/profile/edit/display-name')}>
               <Text color='$subtle'>{t('DISPLAY_NAME')}</Text>
               <Spacer size='$1' />
               <ShimmerRectangle visible={!!vUserDetail}>

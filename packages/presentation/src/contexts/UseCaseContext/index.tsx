@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useContext } from 'react';
-import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase } from '@core/usecase';
+import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase, UpdateUserProfileUseCase } from '@core/usecase';
 import { useCaseContainer } from '../../composition';
 
 export interface UseCaseContainer {
@@ -9,6 +9,7 @@ export interface UseCaseContainer {
   readonly signInUseCase: SignInUseCase;
   readonly signOutUseCase: SignOutUseCase;
   readonly updateScreenNameUseCase: UpdateScreenNameUseCase;
+  readonly updateUserProfileUseCase: UpdateUserProfileUseCase;
 }
 
 const UseCaseContext = createContext<UseCaseContainer>(useCaseContainer);

@@ -165,11 +165,11 @@ describe('EditScreenName', () => {
       // タイマーを進める
       jest.advanceTimersByTime(500);
 
-      // エラーメッセージが表示されていることを確認
+      // エラーメッセージが表示されていないことを確認
       expect(screen.queryByText('EDIT_SCREEN_NAME_EXISTENCE_ERROR')).not.toBeInTheDocument();
       expect(screen.queryByText('EDIT_SCREEN_NAME_MIN_LENGTH_ERROR')).not.toBeInTheDocument();
       expect(screen.queryByText('EDIT_SCREEN_NAME_REGEXP_ERROR')).not.toBeInTheDocument();
-      // エラーアイコンが表示されていることを確認
+      // エラーアイコンが表示されていないことを確認
       expect(await screen.findByText('CircleCheck')).toBeInTheDocument();
       expect(screen.queryByText('XCircle')).not.toBeInTheDocument();
 

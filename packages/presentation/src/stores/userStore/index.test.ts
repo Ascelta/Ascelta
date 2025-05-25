@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { act, renderHook } from '@testing-library/react';
 import { fakeVUserDetail } from '@core/shared';
 import { SuiteUser } from '@core/domain';
@@ -11,27 +12,79 @@ jest.mock('../../contexts/UseCaseContext', () => {
   const mockUpdateScreenNameUseCase = {
     execute: jest.fn(),
   };
+  const mockUpdateUserProfileUseCase = {
+    execute: jest.fn(),
+  };
   return {
     __esModule: true,
     useUseCases: () => ({
       findSuiteUserUseCase: mockFindSuiteUserUseCase,
       updateScreenNameUseCase: mockUpdateScreenNameUseCase,
+      updateUserProfileUseCase: mockUpdateUserProfileUseCase,
     }),
     mockFindSuiteUserUseCase: mockFindSuiteUserUseCase,
     mockUpdateScreenNameUseCase: mockUpdateScreenNameUseCase,
+    mockUpdateUserProfileUseCase: mockUpdateUserProfileUseCase,
   };
 });
 
 const mockFindSuiteUserUseCase = require('../../contexts/UseCaseContext').mockFindSuiteUserUseCase;
 const mockUpdateScreenNameUseCase = require('../../contexts/UseCaseContext').mockUpdateScreenNameUseCase;
+const mockUpdateUserProfileUseCase = require('../../contexts/UseCaseContext').mockUpdateUserProfileUseCase;
 
 describe('useUserStore', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
+  describe('#loadingByUserId', () => {
+    describe('正常系', () => {
+      it('指定したユーザーIDのローディング状態を更新すること', () => {
+        const userId = faker.string.uuid();
+        const { result } = renderHook(() => useUserStore());
+
+        // 初期状態の確認
+        expect(result.current.userMap[userId]).toBeUndefined();
+
+        // loadingByUserIdの実行
+        act(() => {
+          result.current.loadingByUserId(userId);
+        });
+
+        // ローディング状態の確認
+        expect(result.current.userMap[userId]).toStrictEqual({
+          isLoading: true,
+        });
+      });
+    });
+  });
+
+  describe('#errorByUserId', () => {
+    describe('正常系', () => {
+      it('指定したユーザーIDのエラー状態を更新すること', () => {
+        const userId = faker.string.uuid();
+        const mockError = new Error('Test error');
+        const { result } = renderHook(() => useUserStore());
+
+        // 初期状態の確認
+        expect(result.current.userMap[userId]).toBeUndefined();
+
+        // errorByUserIdの実行
+        act(() => {
+          result.current.errorByUserId(userId, mockError);
+        });
+
+        // エラー状態の確認
+        expect(result.current.userMap[userId]).toStrictEqual({
+          isLoading: false,
+          error: mockError,
+        });
+      });
+    });
+  });
+
   describe('#fetchUser', () => {
-    const mockUserId = 'test-user-id';
+    const mockUserId = faker.string.uuid();
     const mockVUserDetail = fakeVUserDetail();
     const mockSuiteUser = new SuiteUser(mockVUserDetail);
 
@@ -41,7 +94,7 @@ describe('useUserStore', () => {
         const { result } = renderHook(() => useUserStore());
 
         // 初期状態の確認
-        expect(result.current.userMap).toEqual({});
+        expect(result.current.userMap[mockUserId]).toBeUndefined();
 
         // fetchUserの実行
         await act(async () => {
@@ -49,7 +102,7 @@ describe('useUserStore', () => {
         });
 
         // ローディング状態の確認
-        expect(result.current.userMap[mockUserId]).toEqual({
+        expect(result.current.userMap[mockUserId]).toStrictEqual({
           isInitialized: true,
           isLoading: false,
           data: mockSuiteUser,
@@ -73,7 +126,7 @@ describe('useUserStore', () => {
         });
 
         // エラー状態の確認
-        expect(result.current.userMap[mockUserId]).toEqual({
+        expect(result.current.userMap[mockUserId]).toStrictEqual({
           isInitialized: true,
           isLoading: false,
           error: mockError,
@@ -87,7 +140,7 @@ describe('useUserStore', () => {
   });
 
   describe('#updateScreenName', () => {
-    const mockUserId = 'test-user-id';
+    const mockUserId = faker.string.uuid();
     const mockScreenName = 'new_screen_name';
     const mockVUserDetail = fakeVUserDetail();
     const mockInitialUserData = new SuiteUser(mockVUserDetail);
@@ -114,15 +167,13 @@ describe('useUserStore', () => {
         });
 
         // 更新後の状態の確認
-        expect(result.current.userMap[mockUserId]).toEqual({
+        expect(result.current.userMap[mockUserId]).toStrictEqual({
           isInitialized: true,
           isLoading: false,
-          data: {
-            vUserDetail: {
-              ...mockVUserDetail,
-              screen_name: mockScreenName,
-            },
-          },
+          data: new SuiteUser({
+            ...mockVUserDetail,
+            screen_name: mockScreenName,
+          }),
         });
 
         // updateScreenNameUseCaseが正しく呼ばれたことを確認
@@ -154,7 +205,7 @@ describe('useUserStore', () => {
         });
 
         // エラー状態の確認
-        expect(result.current.userMap[mockUserId]).toEqual({
+        expect(result.current.userMap[mockUserId]).toStrictEqual({
           isInitialized: true,
           isLoading: false,
           error: mockError,
@@ -177,6 +228,48 @@ describe('useUserStore', () => {
 
         // updateScreenNameUseCaseが呼ばれていないことを確認
         expect(mockUpdateScreenNameUseCase.execute).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('updateUserProfile', () => {
+    describe('正常系', () => {
+      it('ユーザープロフィールの更新に成功すること', async () => {
+        const userId = faker.string.uuid();
+        const displayName = faker.person.fullName();
+        const selfIntroduction = faker.lorem.sentence();
+        mockUpdateUserProfileUseCase.execute.mockResolvedValue({
+          display_name: displayName,
+          self_introduction: selfIntroduction,
+        });
+        const { result } = renderHook(() => useUserStore());
+
+        // 初期データの設定
+        act(() => {
+          result.current.userMap = {
+            [userId]: {
+              isInitialized: true,
+              isLoading: false,
+              data: new SuiteUser(fakeVUserDetail()),
+            },
+          };
+        });
+
+        // updateUserProfileの実行
+        await act(async () => {
+          await result.current.updateUserProfile(userId, displayName, selfIntroduction);
+        });
+
+        // 更新後の状態の確認
+        expect(result.current.userMap[userId]).toStrictEqual({
+          isInitialized: true,
+          isLoading: false,
+          data: new SuiteUser({
+            ...result.current.userMap[userId].data!.vUserDetail,
+            display_name: displayName,
+            self_introduction: selfIntroduction,
+          }),
+        });
       });
     });
   });
