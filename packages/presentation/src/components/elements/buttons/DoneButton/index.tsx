@@ -21,7 +21,7 @@ export const DoneButton: React.FC<Props> = ({ disabled, isLoading, onDone }) => 
       {isLoading ? (
         <Spinner testID='spinner' />
       ) : (
-        <Text fontSize='$6' fontWeight='bold' opacity={disabled ? 0.2 : 1} onPress={onPress}>
+        <Text fontSize='$6' fontWeight='bold' opacity={disabled ? 0.2 : 1} onPress={onPress} paddingVertical='$2'>
           {t('DONE')}
         </Text>
       )}

@@ -8,7 +8,7 @@ export const CancelButton: React.FC = () => {
   const { back } = useRouter();
   return (
     <>
-      <Text onPress={back} fontSize='$6'>
+      <Text onPress={back} fontSize='$6' paddingVertical='$2'>
         {t('CANCEL')}
       </Text>
     </>

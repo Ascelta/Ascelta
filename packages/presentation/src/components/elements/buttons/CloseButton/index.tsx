@@ -10,7 +10,7 @@ export const CloseButton: React.FC<Props> = ({ disabled }) => {
   const { back } = useRouter();
   return (
     <>
-      <X disabled={disabled} onPress={back} />
+      <X disabled={disabled} onPress={back} paddingVertical='$2' />
     </>
   );
 };
