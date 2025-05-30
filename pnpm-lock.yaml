@@ -256,8 +256,8 @@ importers:
         specifier: workspace:*
         version: link:../usecase
       '@gorhom/bottom-sheet':
-        specifier: 5.1.4
-        version: 5.1.4(@types/react@19.1.5)(react-native-gesture-handler@2.25.0(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0)
+        specifier: 5.1.5
+        version: 5.1.5(@types/react@19.1.5)(react-native-gesture-handler@2.25.0(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0)
       '@react-native-community/blur':
         specifier: 4.4.1
         version: 4.4.1(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0)
@@ -1398,8 +1398,8 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
-  '@gorhom/bottom-sheet@5.1.4':
-    resolution: {integrity: sha512-A49fbCLL3wxDhGvEsMzHDpBF+BqVCbXHEhLJo9plPSAxNjjPJFzJ65axj95R38+iqML0gmXyawpZ45PD4EEMAw==}
+  '@gorhom/bottom-sheet@5.1.5':
+    resolution: {integrity: sha512-zn7IZMsEyVehB+hSl+VxHjk62PERyvQheBvhPzeZU+82ozDZ+qRxyrWMKy5YBFGka7DDfDgoPUUCCiaIWFyqmg==}
     peerDependencies:
       '@types/react': '*'
       '@types/react-native': '*'
@@ -8503,9 +8503,9 @@ snapshots:
   '@expo/metro-config@0.19.12':
     dependencies:
       '@babel/core': 7.27.4
-      '@babel/generator': 7.27.1
-      '@babel/parser': 7.27.1
-      '@babel/types': 7.27.1
+      '@babel/generator': 7.27.3
+      '@babel/parser': 7.27.4
+      '@babel/types': 7.27.3
       '@expo/config': 10.0.11
       '@expo/env': 0.4.2
       '@expo/json-file': 9.0.2
@@ -8633,7 +8633,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@gorhom/bottom-sheet@5.1.4(@types/react@19.1.5)(react-native-gesture-handler@2.25.0(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0)':
+  '@gorhom/bottom-sheet@5.1.5(@types/react@19.1.5)(react-native-gesture-handler@2.25.0(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@gorhom/portal': 1.0.14(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.5)(react@19.0.0))(react@19.0.0)
       invariant: 2.2.4
@@ -9235,7 +9235,7 @@ snapshots:
       '@babel/plugin-transform-sticky-regex': 7.27.1(@babel/core@7.27.4)
       '@babel/plugin-transform-typescript': 7.27.0(@babel/core@7.27.4)
       '@babel/plugin-transform-unicode-regex': 7.27.1(@babel/core@7.27.4)
-      '@babel/template': 7.27.1
+      '@babel/template': 7.27.2
       '@react-native/babel-plugin-codegen': 0.76.9(@babel/preset-env@7.27.2(@babel/core@7.27.4))
       babel-plugin-syntax-hermes-parser: 0.25.1
       babel-plugin-transform-flow-enums: 0.0.2(@babel/core@7.27.4)
@@ -9296,7 +9296,7 @@ snapshots:
 
   '@react-native/codegen@0.76.9(@babel/preset-env@7.27.2(@babel/core@7.27.4))':
     dependencies:
-      '@babel/parser': 7.27.1
+      '@babel/parser': 7.27.4
       '@babel/preset-env': 7.27.2(@babel/core@7.27.4)
       glob: 7.2.3
       hermes-parser: 0.23.1
@@ -13591,7 +13591,7 @@ snapshots:
   jscodeshift@0.14.0(@babel/preset-env@7.27.2(@babel/core@7.27.4)):
     dependencies:
       '@babel/core': 7.27.4
-      '@babel/parser': 7.27.1
+      '@babel/parser': 7.27.4
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.27.4)
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.27.4)
       '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.27.4)
@@ -13936,7 +13936,7 @@ snapshots:
   metro-source-map@0.82.2:
     dependencies:
       '@babel/traverse': 7.27.1
-      '@babel/traverse--for-generate-function-map': '@babel/traverse@7.27.1'
+      '@babel/traverse--for-generate-function-map': '@babel/traverse@7.27.4'
       '@babel/types': 7.27.1
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
