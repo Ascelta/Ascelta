@@ -35,9 +35,9 @@
     "zustand": "5.0.5"
   },
   "devDependencies": {
-    "@babel/core": "7.27.1",
+    "@babel/core": "7.27.4",
     "@babel/preset-env": "7.27.2",
-    "@babel/runtime": "7.27.1",
+    "@babel/runtime": "7.27.4",
     "@react-native/babel-preset": "0.79.2",
     "@react-native/typescript-config": "0.79.2",
     "@testing-library/jest-dom": "6.6.3",
