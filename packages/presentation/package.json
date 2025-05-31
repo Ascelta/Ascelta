@@ -11,7 +11,7 @@
     "@core/infrastructure": "workspace:*",
     "@core/shared": "workspace:*",
     "@core/usecase": "workspace:*",
-    "@gorhom/bottom-sheet": "5.1.4",
+    "@gorhom/bottom-sheet": "5.1.5",
     "@react-native-community/blur": "4.4.1",
     "@shopify/flash-list": "1.8.0",
     "@tamagui/config": "1.126.13",
