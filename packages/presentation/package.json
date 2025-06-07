@@ -38,7 +38,7 @@
     "@babel/core": "7.27.4",
     "@babel/preset-env": "7.27.2",
     "@babel/runtime": "7.27.6",
-    "@react-native/babel-preset": "0.79.2",
+    "@react-native/babel-preset": "0.79.3",
     "@react-native/typescript-config": "0.79.2",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
