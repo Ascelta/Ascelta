@@ -19,7 +19,7 @@
     "@codeherence/react-native-header": "0.14.0",
     "@core/presentation": "workspace:*",
     "@core/shared": "workspace:*",
-    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/blur": "4.4.1",
     "@react-navigation/bottom-tabs": "7.3.14",
     "@react-navigation/elements": "2.4.3",
