@@ -126,8 +126,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))
       react-native-bootsplash:
-        specifier: 6.3.8
-        version: 6.3.8(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+        specifier: 6.3.9
+        version: 6.3.9(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-config:
         specifier: 1.5.5
         version: 1.5.5
@@ -5877,8 +5877,8 @@ packages:
   react-native-base64@0.0.2:
     resolution: {integrity: sha512-Fu/J1a2y0X22EJDWqJR2oEa1fpP4gTFjYxk8ElJdt1Yak3HOXmFJ7EohLVHU2DaQkgmKfw8qb7u/48gpzveRbg==}
 
-  react-native-bootsplash@6.3.8:
-    resolution: {integrity: sha512-EvkNWta0tBSPf87JpHAG1aKilma0TVsToMPhy4L8sev70wVewpiuNfhFqvLvp8U7pnE5hi6ld6S8sA0Zhtrs/g==}
+  react-native-bootsplash@6.3.9:
+    resolution: {integrity: sha512-zy0eNHrH1uncTZG/imS1LDBrIuPY7lLey3bDrMVXQ7bHn8sSqrBzn+MXzYtGhqZRULQcEM0rXQlY3WI+xFnkjQ==}
     hasBin: true
     peerDependencies:
       react: '*'
@@ -14581,7 +14581,7 @@ snapshots:
 
   react-native-base64@0.0.2: {}
 
-  react-native-bootsplash@6.3.8(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
+  react-native-bootsplash@6.3.9(react-native@0.79.2(@babel/core@7.27.4)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
       '@expo/config-plugins': 9.0.17
       '@react-native-community/cli-config-android': 18.0.0
