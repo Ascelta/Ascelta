@@ -13,7 +13,7 @@
     "@core/usecase": "workspace:*",
     "@gorhom/bottom-sheet": "5.1.6",
     "@react-native-community/blur": "4.4.1",
-    "@shopify/flash-list": "1.8.2",
+    "@shopify/flash-list": "1.8.3",
     "@tamagui/config": "1.126.18",
     "@tamagui/core": "1.126.18",
     "@tamagui/font-inter": "1.126.18",
