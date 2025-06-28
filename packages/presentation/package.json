@@ -32,7 +32,7 @@
     "react-native-shimmer-placeholder": "2.0.9",
     "solito": "4.4.1",
     "tamagui": "1.128.1",
-    "zustand": "5.0.5"
+    "zustand": "5.0.6"
   },
   "devDependencies": {
     "@babel/core": "7.27.7",
