@@ -135,8 +135,8 @@ importers:
         specifier: 2.8.3
         version: 2.8.3(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-localize:
-        specifier: 3.4.1
-        version: 3.4.1(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+        specifier: 3.4.2
+        version: 3.4.2(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-pager-view:
         specifier: 6.8.1
         version: 6.8.1(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
@@ -5983,8 +5983,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  react-native-localize@3.4.1:
-    resolution: {integrity: sha512-NJqJGBUpHtD/MpLCCkrNiqNZ+xFwbHCivxaoN1Oeb8tBAiZr/IqgP3E+MgnqmmdTMOJ33llUfiW3EM6pEIb33w==}
+  react-native-localize@3.4.2:
+    resolution: {integrity: sha512-wXa2fWvAovVdd5+sPNqN4yp9XP/CzrevsgE23JRSzwrNYa3TuP1jSY+dR5x+4hYUR32Rcz7Roq14XW77i7GOKA==}
     peerDependencies:
       react: '>=18.1.0'
       react-native: '>=0.70.0'
@@ -14780,7 +14780,7 @@ snapshots:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
 
-  react-native-localize@3.4.1(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
+  react-native-localize@3.4.2(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
