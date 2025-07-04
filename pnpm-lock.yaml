@@ -196,8 +196,8 @@ importers:
         specifier: 0.80.1
         version: 0.80.1(@babel/core@7.27.7)
       '@react-native/eslint-config':
-        specifier: 0.80.0
-        version: 0.80.0(eslint@9.30.0)(jest@29.7.0(@types/node@22.14.0))(prettier@3.6.2)(typescript@5.8.3)
+        specifier: 0.80.1
+        version: 0.80.1(eslint@9.30.0)(jest@29.7.0(@types/node@22.14.0))(prettier@3.6.2)(typescript@5.8.3)
       '@react-native/metro-config':
         specifier: 0.80.0
         version: 0.80.0(@babel/core@7.27.7)
@@ -1840,15 +1840,15 @@ packages:
     resolution: {integrity: sha512-9q4CpkklsAs1L0Bw8XYCoqqyBSrfRALGEw4/r0EkR38Y/6fVfNfdsjSns0pTLO6h0VpxswK34L/hm4uK3MoLHw==}
     engines: {node: '>=18'}
 
-  '@react-native/eslint-config@0.80.0':
-    resolution: {integrity: sha512-bd0GOcG++qIKzEngeyeNrGaDWWHtB8CpC5zbpYho2TTWpJDxBRcoPAzBdpPkxQtpBMdXyYRZMENRp6Khrg0YYQ==}
+  '@react-native/eslint-config@0.80.1':
+    resolution: {integrity: sha512-bGtMGDfLDLZ5WWIo+OjfnDo4s1TaKfD0W4OoqeqmIcAkbVYBvTLGcjBW4MsMDO5JVebErUMGa+vE0z7p3B0Nsg==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8'
       prettier: '>=2'
 
-  '@react-native/eslint-plugin@0.80.0':
-    resolution: {integrity: sha512-4kFD3M/zGqKdKyeevnTdhgAhNCj89VflDfv2wElo4jOb07xkR6VlEymv/6mZX3tdP/N5ukP2SZB+FDZH1GxBTg==}
+  '@react-native/eslint-plugin@0.80.1':
+    resolution: {integrity: sha512-e3vLbjiRqJWGm5kVvVfboJwPHOE0ut5bSy/630PQSxpxN1BAZMR2E+pX+s1FasP2KmtOQ3qsIOB54jCA9/xfxA==}
     engines: {node: '>=18'}
 
   '@react-native/gradle-plugin@0.79.2':
@@ -9567,11 +9567,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@react-native/eslint-config@0.80.0(eslint@9.30.0)(jest@29.7.0(@types/node@22.14.0))(prettier@3.6.2)(typescript@5.8.3)':
+  '@react-native/eslint-config@0.80.1(eslint@9.30.0)(jest@29.7.0(@types/node@22.14.0))(prettier@3.6.2)(typescript@5.8.3)':
     dependencies:
       '@babel/core': 7.27.7
       '@babel/eslint-parser': 7.27.0(@babel/core@7.27.7)(eslint@9.30.0)
-      '@react-native/eslint-plugin': 0.80.0
+      '@react-native/eslint-plugin': 0.80.1
       '@typescript-eslint/eslint-plugin': 7.18.0(@typescript-eslint/parser@7.18.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0)(typescript@5.8.3)
       '@typescript-eslint/parser': 7.18.0(eslint@9.30.0)(typescript@5.8.3)
       eslint: 9.30.0
@@ -9588,7 +9588,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@react-native/eslint-plugin@0.80.0': {}
+  '@react-native/eslint-plugin@0.80.1': {}
 
   '@react-native/gradle-plugin@0.79.2': {}
 
