@@ -31,7 +31,7 @@
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-app-auth": "8.0.3",
-    "react-native-bootsplash": "6.3.9",
+    "react-native-bootsplash": "6.3.10",
     "react-native-config": "1.5.5",
     "react-native-linear-gradient": "2.8.3",
     "react-native-localize": "3.4.2",

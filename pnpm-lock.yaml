@@ -126,8 +126,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))
       react-native-bootsplash:
-        specifier: 6.3.9
-        version: 6.3.9(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+        specifier: 6.3.10
+        version: 6.3.10(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-config:
         specifier: 1.5.5
         version: 1.5.5
@@ -5971,8 +5971,8 @@ packages:
   react-native-base64@0.0.2:
     resolution: {integrity: sha512-Fu/J1a2y0X22EJDWqJR2oEa1fpP4gTFjYxk8ElJdt1Yak3HOXmFJ7EohLVHU2DaQkgmKfw8qb7u/48gpzveRbg==}
 
-  react-native-bootsplash@6.3.9:
-    resolution: {integrity: sha512-zy0eNHrH1uncTZG/imS1LDBrIuPY7lLey3bDrMVXQ7bHn8sSqrBzn+MXzYtGhqZRULQcEM0rXQlY3WI+xFnkjQ==}
+  react-native-bootsplash@6.3.10:
+    resolution: {integrity: sha512-OCbo+McficDZrwReyuqk8lDobxPuvo6qMV+SAqKF0ADdlVliX+zgOpkre6vDp+tB9L+TkG2szNPvWjX2zFEwmw==}
     hasBin: true
     peerDependencies:
       react: '*'
@@ -6006,6 +6006,12 @@ packages:
 
   react-native-is-edge-to-edge@1.1.7:
     resolution: {integrity: sha512-EH6i7E8epJGIcu7KpfXYXiV2JFIYITtq+rVS8uEb+92naMRBdxhTuS8Wn2Q7j9sqyO0B+Xbaaf9VdipIAmGW4w==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+
+  react-native-is-edge-to-edge@1.2.1:
+    resolution: {integrity: sha512-FLbPWl/MyYQWz+KwqOZsSyj2JmLKglHatd3xLZWskXOpRaio4LfEDEz8E/A6uD8QoTHW6Aobw1jbEwK7KMgR7Q==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -14793,7 +14799,7 @@ snapshots:
 
   react-native-base64@0.0.2: {}
 
-  react-native-bootsplash@6.3.9(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
+  react-native-bootsplash@6.3.10(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
       '@expo/config-plugins': 9.0.17
       '@react-native-community/cli-config-android': 18.0.0
@@ -14804,10 +14810,10 @@ snapshots:
       fs-extra: 11.3.0
       node-html-parser: 7.0.1
       picocolors: 1.1.1
-      prettier: 3.5.3
+      prettier: 3.6.2
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
-      react-native-is-edge-to-edge: 1.1.7(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+      react-native-is-edge-to-edge: 1.2.1(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       sharp: 0.34.2
       ts-dedent: 2.2.0
       xml-formatter: 3.6.5
@@ -14835,6 +14841,11 @@ snapshots:
       react-native: 0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
 
   react-native-is-edge-to-edge@1.1.7(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-native: 0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
+
+  react-native-is-edge-to-edge@1.2.1(react-native@0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.27.7)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
