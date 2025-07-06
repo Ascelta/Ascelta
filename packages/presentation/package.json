@@ -21,7 +21,7 @@
     "@tamagui/shorthands": "1.129.5",
     "@tamagui/themes": "1.129.5",
     "burnt": "0.13.0",
-    "i18next": "25.2.1",
+    "i18next": "25.3.1",
     "react": "19.0.0",
     "react-i18next": "15.5.3",
     "react-native-collapsible-tab-view": "8.0.1",
