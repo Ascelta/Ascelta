@@ -135,8 +135,8 @@ importers:
         specifier: 2.8.3
         version: 2.8.3(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-localize:
-        specifier: 3.4.2
-        version: 3.4.2(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+        specifier: 3.5.1
+        version: 3.5.1(@expo/config-plugins@9.0.17)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-pager-view:
         specifier: 6.8.1
         version: 6.8.1(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
@@ -6094,13 +6094,16 @@ packages:
       react: '*'
       react-native: '*'
 
-  react-native-localize@3.4.2:
-    resolution: {integrity: sha512-wXa2fWvAovVdd5+sPNqN4yp9XP/CzrevsgE23JRSzwrNYa3TuP1jSY+dR5x+4hYUR32Rcz7Roq14XW77i7GOKA==}
+  react-native-localize@3.5.1:
+    resolution: {integrity: sha512-AX2soRR1/BCK2GvzjIpH+0EQaR2acfojFtjAstnYBFPR7ThIQx5Xb+OlqpzYxcYTPDxIcU5i4/yMa23Agy7p8g==}
     peerDependencies:
-      react: '>=18.1.0'
-      react-native: '>=0.70.0'
-      react-native-macos: '>=0.70.0'
+      '@expo/config-plugins': ^9.0.0 || ^10.0.0
+      react: '*'
+      react-native: '*'
+      react-native-macos: '*'
     peerDependenciesMeta:
+      '@expo/config-plugins':
+        optional: true
       react-native-macos:
         optional: true
 
@@ -15009,10 +15012,12 @@ snapshots:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
 
-  react-native-localize@3.4.2(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
+  react-native-localize@3.5.1(@expo/config-plugins@9.0.17)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
+    optionalDependencies:
+      '@expo/config-plugins': 9.0.17
 
   react-native-pager-view@6.8.1(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
