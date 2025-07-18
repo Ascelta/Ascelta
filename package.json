@@ -47,7 +47,7 @@
     "jest-mock-extended": "4.0.0",
     "prettier": "3.6.2",
     "ts-jest": "29.4.0",
-    "turbo": "2.5.4",
+    "turbo": "2.5.5",
     "typescript": "5.8.3",
     "typescript-eslint": "8.36.0"
   },
