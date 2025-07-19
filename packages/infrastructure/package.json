@@ -9,7 +9,7 @@
     "@core/domain": "workspace:*",
     "@core/shared": "workspace:*",
     "@react-native-async-storage/async-storage": "2.2.0",
-    "@supabase/supabase-js": "2.50.5",
+    "@supabase/supabase-js": "2.52.0",
     "react-native-app-auth": "8.0.3"
   }
 }
