@@ -61,5 +61,35 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>写真ライブラリへのアクセスを許可してください。ギャラリーから写真をアップロードするために使用します。</string>
+	<key>NSCameraUsageDescription</key>
+	<string>カメラへのアクセスを許可してください。プロフィールや投稿に写真をアップロードするために使用します。</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>写真ライブラリへの書き込みを許可してください。ギャラリーに写真を保存するために使用します。</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>マイクへのアクセスを許可してください。動画の録音およびアップロードに使用します。</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Ionicons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>FontAwesome6_Brands.ttf</string>
+		<string>FontAwesome6_Regular.ttf</string>
+		<string>FontAwesome6_Solid.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+	</array>
 </dict>
 </plist>

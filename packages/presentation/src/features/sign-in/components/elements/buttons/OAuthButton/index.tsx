@@ -1,5 +1,7 @@
 import React, { ReactNode, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Paragraph, Spacer, View, XStack, styled } from 'tamagui';
+import { Toast } from 'toastify-react-native';
 import { AuthProviderType } from '@core/domain';
 import { LoadingDialog } from '../../../../../../components/elements/loadings/LoadingDialog';
 import { useAuth } from '../../../../../../contexts/AuthContext';
@@ -16,6 +18,7 @@ type Props = {
 export const OAuthButton: React.FC<Props> = ({ type, icon, text, backgroundColor, borderColor, textColor }) => {
   const [loadingDialogVisible, setLoadingDialogVisible] = useState(false);
   const { signIn } = useAuth();
+  const { t } = useTranslation();
   const StaticButton = styled(Button, {
     borderRadius: '$12',
     backgroundColor: backgroundColor,
@@ -38,6 +41,13 @@ export const OAuthButton: React.FC<Props> = ({ type, icon, text, backgroundColor
     try {
       setLoadingDialogVisible(true);
       await signIn(type);
+    } catch (error: any) {
+      // キャンセルエラーの場合は何も表示しない
+      if (error?.message?.includes('User cancelled') || error?.message?.includes('cancelled') || error?.message?.includes('org.openid.appauth.general error -3')) {
+        return; // Toast表示なしで終了
+      }
+      // その他のエラーは全て同じメッセージで表示（セキュリティ考慮）
+      Toast.error(t('SIGN_IN_ERROR'));
     } finally {
       setLoadingDialogVisible(false);
     }

@@ -100,17 +100,15 @@ describe('EditScreenName', () => {
   });
 
   const renderComponent = () => {
-    return act(() => {
-      return render(
-        <TamaguiProvider config={config}>
-          <EditScreenName />
-        </TamaguiProvider>,
-      );
-    });
+    return render(
+      <TamaguiProvider config={config}>
+        <EditScreenName />
+      </TamaguiProvider>,
+    );
   };
 
   describe('正常系', () => {
-    it('文字を入力して一定時間後にスクリーンネームの存在チェックが呼ばれること', () => {
+    it('文字を入力して一定時間後にスクリーンネームの存在チェックが呼ばれること', async () => {
       renderComponent();
       const input = screen.getByPlaceholderText('USERNAME');
 
@@ -125,8 +123,12 @@ describe('EditScreenName', () => {
         jest.advanceTimersByTime(500);
       });
 
+      // 非同期処理の完了を待つ
+      await waitFor(() => {
+        expect(mockCheckScreenNameExistenceUseCase.execute).toHaveBeenCalledTimes(1);
+      });
+
       // checkScreenNameExistenceUseCaseが呼ばれたことを確認
-      expect(mockCheckScreenNameExistenceUseCase.execute).toHaveBeenCalledTimes(1);
       expect(mockCheckScreenNameExistenceUseCase.execute).toHaveBeenCalledWith('new_username');
     });
 
@@ -163,14 +165,20 @@ describe('EditScreenName', () => {
       fireEvent.change(input, { target: { value: 'new_username' } });
 
       // タイマーを進める
-      jest.advanceTimersByTime(500);
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
+
+      // 非同期処理の完了を待つ
+      await waitFor(() => {
+        expect(screen.getByText('CircleCheck')).toBeInTheDocument();
+      });
 
       // エラーメッセージが表示されていないことを確認
       expect(screen.queryByText('EDIT_SCREEN_NAME_EXISTENCE_ERROR')).not.toBeInTheDocument();
       expect(screen.queryByText('EDIT_SCREEN_NAME_MIN_LENGTH_ERROR')).not.toBeInTheDocument();
       expect(screen.queryByText('EDIT_SCREEN_NAME_REGEXP_ERROR')).not.toBeInTheDocument();
       // エラーアイコンが表示されていないことを確認
-      expect(await screen.findByText('CircleCheck')).toBeInTheDocument();
       expect(screen.queryByText('XCircle')).not.toBeInTheDocument();
 
       expect(mockUpdateScreenName).not.toHaveBeenCalled();
@@ -188,7 +196,7 @@ describe('EditScreenName', () => {
       });
     });
 
-    it('ステータスが成功でない場合は更新処理が呼ばれないこと', () => {
+    it('ステータスが成功でない場合は更新処理が呼ばれないこと', async () => {
       mockCheckScreenNameExistenceUseCase.execute.mockResolvedValue(true);
       renderComponent();
       const input = screen.getByPlaceholderText('USERNAME');
@@ -198,7 +206,14 @@ describe('EditScreenName', () => {
       fireEvent.change(input, { target: { value: 'existing_username' } });
 
       // タイマーを進める
-      jest.advanceTimersByTime(500);
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
+
+      // 非同期処理の完了を待つ
+      await waitFor(() => {
+        expect(mockCheckScreenNameExistenceUseCase.execute).toHaveBeenCalledWith('existing_username');
+      });
 
       // 完了ボタンをタップ
       fireEvent.click(doneButton);
@@ -218,10 +233,16 @@ describe('EditScreenName', () => {
       fireEvent.change(input, { target: { value: 'existing_username' } });
 
       // タイマーを進める
-      jest.advanceTimersByTime(500);
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
+
+      // 非同期処理の完了を待つ
+      await waitFor(() => {
+        expect(screen.getByText('EDIT_SCREEN_NAME_EXISTENCE_ERROR')).toBeInTheDocument();
+      });
 
       // エラーメッセージが表示されていることを確認
-      expect(await screen.findByText('EDIT_SCREEN_NAME_EXISTENCE_ERROR')).toBeInTheDocument();
       expect(screen.queryByText('EDIT_SCREEN_NAME_MIN_LENGTH_ERROR')).not.toBeInTheDocument();
       expect(screen.queryByText('EDIT_SCREEN_NAME_REGEXP_ERROR')).not.toBeInTheDocument();
       // エラーアイコンが表示されていることを確認

@@ -48,13 +48,15 @@ export class AuthRepositoryImpl implements AuthRepository {
 
   async signInWithGoogle(): Promise<void> {
     const { idToken, accessToken } = await authorize(OAuthConfig.GOOGLE);
-    // const { data, error } = await this.supabase.auth.signInWithIdToken({
-    await this.supabase.auth.signInWithIdToken({
+    const { error } = await this.supabase.auth.signInWithIdToken({
       provider: 'google',
       token: idToken,
       access_token: accessToken,
     });
-    // TODO: error のエラーハンドリングする
+
+    if (error) {
+      throw error;
+    }
   }
 
   async signInWithX(): Promise<void> {

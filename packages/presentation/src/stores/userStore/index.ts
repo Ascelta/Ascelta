@@ -19,7 +19,7 @@ type Action = {
   errorByUserId: (userId: string, error: Error) => void;
   fetchUser: (userId: string) => Promise<void>;
   updateScreenName: (userId: string, screenName: string) => Promise<void>;
-  updateUserProfile: (userId: string, displayName?: string, selfIntroduction?: string) => Promise<void>;
+  updateUserProfile: (userId: string, imageUrl?: string | null, screenName?: string, displayName?: string, selfIntroduction?: string) => Promise<void>;
 };
 
 export const useUserStore = create<State & Action>((set, get) => {
@@ -101,7 +101,7 @@ export const useUserStore = create<State & Action>((set, get) => {
         state.errorByUserId(userId, error as Error);
       }
     },
-    updateUserProfile: async (userId: string, displayName?: string, selfIntroduction?: string) => {
+    updateUserProfile: async (userId: string, imageUrl?: string | null, screenName?: string, displayName?: string, selfIntroduction?: string) => {
       const state = get();
       state.loadingByUserId(userId);
       const data = state.userMap[userId];
@@ -109,7 +109,10 @@ export const useUserStore = create<State & Action>((set, get) => {
         throw new Error(`User data for userId ${userId} not found in userMap.`);
       }
       try {
-        const tUserProfile = await updateUserProfileUseCase.execute(userId, displayName, selfIntroduction);
+        if (screenName) {
+          await updateScreenNameUseCase.execute(userId, screenName);
+        }
+        const tUserProfile = await updateUserProfileUseCase.execute(userId, imageUrl, displayName, selfIntroduction);
         set(state => {
           return {
             ...state,
@@ -119,6 +122,7 @@ export const useUserStore = create<State & Action>((set, get) => {
                 ...data,
                 data: new SuiteUser({
                   ...data.data!.vUserDetail,
+                  avatar_url: tUserProfile.avatar_url,
                   display_name: tUserProfile.display_name,
                   self_introduction: tUserProfile.self_introduction,
                 }),

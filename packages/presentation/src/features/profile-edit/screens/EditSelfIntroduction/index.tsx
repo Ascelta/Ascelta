@@ -35,7 +35,7 @@ export const EditSelfIntroduction: React.FC = () => {
       return;
     }
     if (selfIntroduction !== newSelfIntroduction) {
-      await updateUserProfile(userId, undefined, newSelfIntroduction);
+      await updateUserProfile(userId, undefined, undefined, undefined, newSelfIntroduction);
     }
     back();
   };

@@ -120,7 +120,7 @@ describe('EditSelfIntroduction', () => {
 
       // updateUserProfileが正しい引数で呼ばれたことを確認
       expect(mockUpdateUserProfile).toHaveBeenCalledTimes(1);
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, 'new_self_introduction');
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, undefined, undefined, 'new_self_introduction');
 
       waitFor(() => {
         // backが呼ばれたことを確認
@@ -146,7 +146,7 @@ describe('EditSelfIntroduction', () => {
 
       // updateUserProfileが正しい引数で呼ばれたことを確認
       expect(mockUpdateUserProfile).toHaveBeenCalledTimes(1);
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, '');
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, undefined, undefined, '');
 
       waitFor(() => {
         // backが呼ばれたことを確認

@@ -118,7 +118,9 @@ describe('EditDisplayName', () => {
       fireEvent.change(input, { target: { value: 'new_display_name' } });
 
       // タイマーを進める
-      jest.advanceTimersByTime(500);
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
 
       // エラーメッセージが表示されていないことを確認
       expect(screen.queryByText('REQUIRED_ERROR')).not.toBeInTheDocument();
@@ -129,7 +131,7 @@ describe('EditDisplayName', () => {
 
       // updateUserProfileが正しい引数で呼ばれたことを確認
       expect(mockUpdateUserProfile).toHaveBeenCalledTimes(1);
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, 'new_display_name', undefined);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, 'new_display_name', undefined, undefined);
 
       jest.useRealTimers();
       waitFor(() => {
@@ -148,7 +150,9 @@ describe('EditDisplayName', () => {
       fireEvent.change(input, { target: { value: '' } });
 
       // タイマーを進める
-      jest.advanceTimersByTime(500);
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
 
       // エラーメッセージが表示されていることを確認
       expect(await screen.findByText('REQUIRED_ERROR')).toBeInTheDocument();

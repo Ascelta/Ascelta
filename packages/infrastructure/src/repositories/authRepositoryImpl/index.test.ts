@@ -46,7 +46,7 @@ const mockSignInWithIdToken = jest.fn();
 const mockSignInAnonymously = jest.fn();
 const mockSignOut = jest.fn();
 const mockSupabaseClient = SupabaseClient as jest.Mock;
-mockSupabaseClient.mockImplementationOnce(() => ({
+mockSupabaseClient.mockImplementation(() => ({
   auth: {
     signInWithIdToken: mockSignInWithIdToken,
     signInAnonymously: mockSignInAnonymously,
@@ -62,12 +62,44 @@ describe('AuthRepositoryImpl', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockSignInWithIdToken.mockResolvedValue({ error: null });
+    mockSignInAnonymously.mockResolvedValue({ error: null });
+    mockSignOut.mockResolvedValue({ error: null });
   });
 
   describe('#signInWithGoogle', () => {
     describe('正常系', () => {
       it(`react-native-app-auth の #authorize に ${OAuthConfig.GOOGLE} が渡されていること`, async () => {
         await repository.signInWithGoogle();
+        expect(mockAuthorize).toHaveBeenCalledTimes(1);
+        expect(mockAuthorize).toHaveBeenCalledWith(OAuthConfig.GOOGLE);
+        expect(mockSignInWithIdToken).toHaveBeenCalledTimes(1);
+        expect(mockSignInWithIdToken).toHaveBeenCalledWith({
+          provider: 'google',
+          token: idToken,
+          access_token: accessToken,
+        });
+      });
+    });
+
+    describe('異常系', () => {
+      it('react-native-app-auth でエラーが発生した場合、エラーが throw されること', async () => {
+        const authError = new Error('OAuth authorization failed');
+        (mockAuthorize as jest.Mock).mockRejectedValueOnce(authError);
+
+        await expect(repository.signInWithGoogle()).rejects.toThrow('OAuth authorization failed');
+        
+        expect(mockAuthorize).toHaveBeenCalledTimes(1);
+        expect(mockAuthorize).toHaveBeenCalledWith(OAuthConfig.GOOGLE);
+        expect(mockSignInWithIdToken).not.toHaveBeenCalled();
+      });
+
+      it('Supabase でエラーが発生した場合、エラーが throw されること', async () => {
+        const supabaseError = { message: 'Invalid token', status: 400 };
+        mockSignInWithIdToken.mockResolvedValueOnce({ error: supabaseError });
+
+        await expect(repository.signInWithGoogle()).rejects.toEqual(supabaseError);
+        
         expect(mockAuthorize).toHaveBeenCalledTimes(1);
         expect(mockAuthorize).toHaveBeenCalledWith(OAuthConfig.GOOGLE);
         expect(mockSignInWithIdToken).toHaveBeenCalledTimes(1);

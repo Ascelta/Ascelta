@@ -39,6 +39,7 @@ const customTokens = createTokens({
     success: '#42E38D',
     warning: '#FFB020',
     error: '#FF4B6E',
+    danger: '#FF4B6E',
 
     // Brand gradient
     brandGradient: 'linear-gradient(130deg,#A95AFF 0%,#91A3FF 50%,#47D8DC 100%)',
@@ -75,10 +76,11 @@ const config = createTamagui({
       shimmerBackground: '#F7F7F7',
       shimmerHighlight: '#E0E0E0',
       // overlay
-      overlayBackground: 'rgba(0, 0, 0, 0.1)',
+      overlayBackground: customTokens.color.neutral900,
       // semantic
       success: customTokens.color.success,
       warning: customTokens.color.warning,
+      error: customTokens.color.error,
       danger: customTokens.color.danger,
     },
     dark: {
@@ -102,10 +104,11 @@ const config = createTamagui({
       shimmerBackground: '#14161A',
       shimmerHighlight: '#22252C',
       // overlay
-      overlayBackground: 'rgba(255, 255, 255, 0.1)',
+      overlayBackground: customTokens.color.neutral100,
       // semantic
       success: customTokens.color.success,
       warning: customTokens.color.warning,
+      error: customTokens.color.error,
       danger: customTokens.color.danger,
     },
     // dark: {

@@ -257,7 +257,7 @@ describe('useUserStore', () => {
 
         // updateUserProfileの実行
         await act(async () => {
-          await result.current.updateUserProfile(userId, displayName, selfIntroduction);
+          await result.current.updateUserProfile(userId, undefined, undefined, displayName, selfIntroduction);
         });
 
         // 更新後の状態の確認

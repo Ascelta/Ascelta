@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OAuthButton /> スナップショットが一致すること 1`] = `
+exports[`<OAuthButton /> 正常系 スナップショットが一致すること 1`] = `
 <DocumentFragment>
   <span
     class=""

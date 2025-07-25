@@ -1,12 +1,12 @@
 import { defaultConfig } from '@tamagui/config/v4';
 import { fireEvent, render } from '@testing-library/react';
 import { TamaguiProvider, createTamagui } from 'tamagui';
-import { CloseButton } from './';
+import { BackButton } from './';
 
 jest.mock('@tamagui/lucide-icons', () => {
   const { Text } = require('tamagui');
   return {
-    X: (props: any) => <Text onPress={props.onPress}>CLOSE</Text>,
+    ChevronLeft: (props: any) => <Text onPress={props.onPress}>BACK</Text>,
   };
 });
 
@@ -40,10 +40,10 @@ describe('CloseButton', () => {
     it('タップしたら back が呼ばれること', () => {
       const { getByText } = render(
         <TamaguiProvider config={config}>
-          <CloseButton />
+          <BackButton />
         </TamaguiProvider>,
       );
-      fireEvent.click(getByText('CLOSE'));
+      fireEvent.click(getByText('BACK'));
       expect(mockBack).toHaveBeenCalledTimes(1);
     });
   });
