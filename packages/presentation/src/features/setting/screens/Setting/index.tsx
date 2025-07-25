@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AlertDialog, Button, Text, View, YStack } from 'tamagui';
-import { OutlinedButton } from '../../../../components/elements/buttons/OutlinedButton';
-import { LoadingDialog } from '../../../../components/elements/loadings/LoadingDialog';
-import { useAuth } from '../../../../contexts/AuthContext';
+import { OutlinedButton } from '@core/presentation/components/elements/buttons/OutlinedButton';
+import { LoadingDialog } from '@core/presentation/components/elements/loadings/LoadingDialog';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
 
 export const Setting: React.FC = () => {
   const [loadingDialogVisible, setLoadingDialogVisible] = useState(false);

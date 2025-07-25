@@ -3,10 +3,10 @@ import ToastManager from 'toastify-react-native';
 import { SheetProvider } from 'react-native-actions-sheet';
 import { TamaguiProvider } from 'tamagui';
 import config from '../tamagui.config.ts';
-import { AuthProvider } from './contexts/AuthContext';
-import { UseCaseProvider } from './contexts/UseCaseContext';
-import './locales/config/index.ts';
-import { Theme } from './types/theme';
+import { AuthProvider } from '@core/presentation/contexts/AuthContext';
+import { UseCaseProvider } from '@core/presentation/contexts/UseCaseContext';
+import '@core/presentation/locales/config';
+import { Theme } from '@core/presentation/types/theme';
 
 type Props = {
   theme: Theme;

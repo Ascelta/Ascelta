@@ -4,12 +4,12 @@ import { CircleCheck, XCircle } from '@tamagui/lucide-icons';
 import { useRouter } from 'solito/router';
 import { Input, Spacer, Spinner, Text, View, XStack, YStack, styled } from 'tamagui';
 import { AppConfig } from '@core/shared/src/configs/appConfig';
-import { CancelButton } from '../../../../components/elements/buttons/CancelButton';
-import { DoneButton } from '../../../../components/elements/buttons/DoneButton';
-import { Header } from '../../../../components/layouts/headers/Header';
-import { useAuth } from '../../../../contexts/AuthContext';
-import { useUseCases } from '../../../../contexts/UseCaseContext';
-import { useUserStore } from '../../../../stores/userStore';
+import { CancelButton } from '@core/presentation/components/elements/buttons/CancelButton';
+import { DoneButton } from '@core/presentation/components/elements/buttons/DoneButton';
+import { Header } from '@core/presentation/components/layouts/headers/Header';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
+import { useUseCases } from '@core/presentation/contexts/UseCaseContext';
+import { useUserStore } from '@core/presentation/stores/userStore';
 
 type Status = 'success' | 'exists' | 'min-length' | 'invalid-format' | undefined;
 

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { SuiteUser } from '@core/domain';
-import { useUseCases } from '../../contexts/UseCaseContext';
+import { useUseCases } from '@core/presentation/contexts/UseCaseContext';
 
 type Data = {
   data?: SuiteUser;

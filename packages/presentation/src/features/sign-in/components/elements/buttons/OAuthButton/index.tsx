@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Button, Paragraph, Spacer, View, XStack, styled } from 'tamagui';
 import { Toast } from 'toastify-react-native';
 import { AuthProviderType } from '@core/domain';
-import { LoadingDialog } from '../../../../../../components/elements/loadings/LoadingDialog';
-import { useAuth } from '../../../../../../contexts/AuthContext';
+import { LoadingDialog } from '@core/presentation/components/elements/loadings/LoadingDialog';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
 
 type Props = {
   type: AuthProviderType;

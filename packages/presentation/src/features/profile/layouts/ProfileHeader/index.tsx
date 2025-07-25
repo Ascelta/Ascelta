@@ -5,12 +5,12 @@ import { Settings } from '@tamagui/lucide-icons';
 import { useRouter } from 'solito/router';
 import { Spacer, Text, View, XStack, YStack } from 'tamagui';
 import { SuiteUser } from '@core/domain';
-import { UserAvatar } from '../../../../components/elements/avatars/UserAvatar';
-import { OutlinedButton } from '../../../../components/elements/buttons/OutlinedButton';
-import { ShimmerRectangle } from '../../../../components/elements/loadings/Shimmer';
-import { DisplayName } from '../../../../components/elements/texts/DisplayName';
-import { ScreenName } from '../../../../components/elements/texts/ScreenName';
-import { SelfIntroduction } from '../../components/parts/SelfIntroduction';
+import { UserAvatar } from '@core/presentation/components/elements/avatars/UserAvatar';
+import { OutlinedButton } from '@core/presentation/components/elements/buttons/OutlinedButton';
+import { ShimmerRectangle } from '@core/presentation/components/elements/loadings/Shimmer';
+import { DisplayName } from '@core/presentation/components/elements/texts/DisplayName';
+import { ScreenName } from '@core/presentation/components/elements/texts/ScreenName';
+import { SelfIntroduction } from '@core/presentation/features/profile/components/parts/SelfIntroduction';
 
 type Props = {
   suiteUser: SuiteUser | undefined;

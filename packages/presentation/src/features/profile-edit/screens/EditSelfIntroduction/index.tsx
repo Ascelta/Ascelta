@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'solito/router';
 import { Input, Spacer, Text, YStack } from 'tamagui';
 import { AppConfig } from '@core/shared/src/configs/appConfig';
-import { CancelButton } from '../../../../components/elements/buttons/CancelButton';
-import { DoneButton } from '../../../../components/elements/buttons/DoneButton';
-import { TextInput } from '../../../../components/elements/inputs/TextInput';
-import { Header } from '../../../../components/layouts/headers/Header';
-import { useAuth } from '../../../../contexts/AuthContext';
-import { useUserStore } from '../../../../stores/userStore';
+import { CancelButton } from '@core/presentation/components/elements/buttons/CancelButton';
+import { DoneButton } from '@core/presentation/components/elements/buttons/DoneButton';
+import { TextInput } from '@core/presentation/components/elements/inputs/TextInput';
+import { Header } from '@core/presentation/components/layouts/headers/Header';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
+import { useUserStore } from '@core/presentation/stores/userStore';
 
 export const EditSelfIntroduction: React.FC = () => {
   const { t } = useTranslation();

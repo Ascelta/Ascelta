@@ -6,10 +6,10 @@ import { LinearGradient } from 'react-native-linear-gradient';
 import Animated, { SharedValue, interpolateColor, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Separator, Spacer, Text, View, XStack, YStack, useTheme, useWindowDimensions } from 'tamagui';
-import { PostCard } from '../../../../components/elements/cards/PostCard';
-import { useAuth } from '../../../../contexts/AuthContext';
-import { useUserStore } from '../../../../stores/userStore';
-import { ProfileHeader } from '../../layouts/ProfileHeader';
+import { PostCard } from '@core/presentation/components/elements/cards/PostCard';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
+import { useUserStore } from '@core/presentation/stores/userStore';
+import { ProfileHeader } from '@core/presentation/features/profile/layouts/ProfileHeader';
 
 const DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const identity = (v: unknown): string => v + '';

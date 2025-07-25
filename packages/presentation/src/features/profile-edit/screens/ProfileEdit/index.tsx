@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { ActionSheetRef } from 'react-native-actions-sheet';
 import { useRouter } from 'solito/router';
 import { Separator, Spacer, Text, View, YStack } from 'tamagui';
-import { UserAvatar } from '../../../../components/elements/avatars/UserAvatar';
-import { CloseButton } from '../../../../components/elements/buttons/CloseButton';
-import { ShimmerRectangle } from '../../../../components/elements/loadings/Shimmer';
-import { Header } from '../../../../components/layouts/headers/Header';
-import { useAuth } from '../../../../contexts/AuthContext';
-import { useUserStore } from '../../../../stores/userStore';
+import { UserAvatar } from '@core/presentation/components/elements/avatars/UserAvatar';
+import { CloseButton } from '@core/presentation/components/elements/buttons/CloseButton';
+import { ShimmerRectangle } from '@core/presentation/components/elements/loadings/Shimmer';
+import { Header } from '@core/presentation/components/layouts/headers/Header';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
+import { useUserStore } from '@core/presentation/stores/userStore';
 import { EditProfileImageActionSheetModal } from '../../components/modals/EditProfileImageActionSheetModal';
 
 export const ProfileEdit: React.FC = () => {

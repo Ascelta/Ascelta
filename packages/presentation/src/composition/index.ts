@@ -1,6 +1,6 @@
 import { authRepository, idGenerator, storageRepository, tUserProfileRepository, tUserRepository, vUserDetailRepository } from '@core/infrastructure';
 import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase, UpdateUserProfileUseCase } from '@core/usecase';
-import { UseCaseContainer } from '../contexts/UseCaseContext';
+import { UseCaseContainer } from '@core/presentation/contexts/UseCaseContext';
 
 export const useCaseContainer: UseCaseContainer = {
   checkScreenNameExistenceUseCase: new CheckScreenNameExistenceUseCase(tUserRepository),

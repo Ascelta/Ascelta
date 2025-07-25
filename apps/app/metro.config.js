@@ -22,6 +22,14 @@ const config = {
     unstable_enablePackageExports: false,
     assetExts: assetExts.filter(ext => ext !== 'svg'),
     sourceExts: [...sourceExts, 'svg'],
+    extraNodeModules: {
+      '@app': path.resolve(__dirname, './src'),
+      '@core/shared': path.resolve(__dirname, '../../packages/shared/src'),
+      '@core/infrastructure': path.resolve(__dirname, '../../packages/infrastructure/src'),
+      '@core/presentation': path.resolve(__dirname, '../../packages/presentation/src'),
+      '@core/usecase': path.resolve(__dirname, '../../packages/usecase/src'),
+      '@core/domain': path.resolve(__dirname, '../../packages/domain/src'),
+    },
   },
   watchFolders: [monorepoRoot],
 };

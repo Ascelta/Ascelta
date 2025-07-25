@@ -5,9 +5,9 @@ import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { Camera, Image, Trash, X } from '@tamagui/lucide-icons';
 import { Spacer, Text, View, XStack, YStack, useTheme } from 'tamagui';
-import { LoadingDialog } from '../../../../../components/elements/loadings/LoadingDialog';
-import { useUserStore } from '../../../../../stores/userStore';
-import { useAuth } from '../../../../../contexts/AuthContext';
+import { LoadingDialog } from '@core/presentation/components/elements/loadings/LoadingDialog';
+import { useUserStore } from '@core/presentation/stores/userStore';
+import { useAuth } from '@core/presentation/contexts/AuthContext';
 
 type Props = {
   ref: React.RefObject<ActionSheetRef | null>;

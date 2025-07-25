@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetTokenString, Tokens } from '@tamagui/core';
 import { Avatar, getTokenValue } from 'tamagui';
-import { ShimmerCircle } from '../../loadings/Shimmer';
+import { ShimmerCircle } from '@core/presentation/components/elements/loadings/Shimmer';
 
 type Props = {
   size: GetTokenString<keyof Tokens['size']> | number;
