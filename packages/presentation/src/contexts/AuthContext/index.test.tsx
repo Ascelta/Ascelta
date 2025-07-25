@@ -9,18 +9,8 @@ const mockGetCurrentUserIdUseCase = jest.fn<Promise<string | undefined>, []>();
 const mockSignInUseCase = jest.fn<Promise<void>, [string]>().mockResolvedValue();
 const mockSignOutUseCase = jest.fn<Promise<void>, []>().mockResolvedValue();
 
-jest.mock('@core/infrastructure', () => {
-  const mockOnAuthStateChange = jest.fn();
-  return {
-    __esModule: true,
-    authRepository: {
-      onAuthStateChange: mockOnAuthStateChange,
-    },
-    mockOnAuthStateChange: mockOnAuthStateChange,
-  };
-});
-
-const mockOnAuthStateChange = require('@core/infrastructure').mockOnAuthStateChange;
+import { authRepository } from '@core/infrastructure';
+const mockOnAuthStateChange = authRepository.onAuthStateChange;
 
 let captured: any;
 const Consumer: React.FC = () => {

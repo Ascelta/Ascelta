@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { CircleCheck, XCircle } from '@tamagui/lucide-icons';
 import { useRouter } from 'solito/router';
 import { Input, Spacer, Spinner, Text, View, XStack, YStack, styled } from 'tamagui';
-import { AppConfig } from '@core/shared/src/configs/appConfig';
+import { AppConfig } from '@core/shared/configs/appConfig';
 import { CancelButton } from '@core/presentation/components/elements/buttons/CancelButton';
 import { DoneButton } from '@core/presentation/components/elements/buttons/DoneButton';
 import { Header } from '@core/presentation/components/layouts/headers/Header';

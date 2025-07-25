@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'solito/router';
 import { Input, Spacer, Text, YStack } from 'tamagui';
-import { AppConfig } from '@core/shared/src/configs/appConfig';
+import { AppConfig } from '@core/shared/configs/appConfig';
 import { CancelButton } from '@core/presentation/components/elements/buttons/CancelButton';
 import { DoneButton } from '@core/presentation/components/elements/buttons/DoneButton';
 import { TextInput } from '@core/presentation/components/elements/inputs/TextInput';

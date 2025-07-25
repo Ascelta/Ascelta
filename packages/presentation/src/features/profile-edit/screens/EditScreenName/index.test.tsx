@@ -18,7 +18,7 @@ jest.mock('@tamagui/lucide-icons', () => {
     XCircle: () => <Text>XCircle</Text>,
   };
 });
-jest.mock('@core/shared/src/configs/appConfig', () => ({
+jest.mock('@core/shared/configs/appConfig', () => ({
   __esModule: true,
   AppConfig: {
     SCREEN_NAME_MIN_LENGTH: screenNameMinLength,

@@ -1,6 +1,14 @@
 import { faker } from '@faker-js/faker';
 import { act, renderHook } from '@testing-library/react';
-import { fakeVUserDetail } from '@core/shared';
+// Mock fakeVUserDetail since @core/shared is not available in tests
+const fakeVUserDetail = () => ({
+  id: 'test-id',
+  screen_name: 'test_screen',
+  display_name: 'Test User',
+  avatar_url: 'https://example.com/avatar.jpg',
+  self_introduction: 'Test introduction',
+});
+
 import { SuiteUser } from '@core/domain';
 import { useUserStore } from './index';
 

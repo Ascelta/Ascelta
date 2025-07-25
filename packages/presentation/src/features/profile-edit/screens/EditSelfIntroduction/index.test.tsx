@@ -8,7 +8,7 @@ const mockUserId = 'test-user-id';
 const mockSelfIntroduction = 'self_introduction';
 
 // モックの設定
-jest.mock('@core/shared/src/configs/appConfig', () => ({
+jest.mock('@core/shared/configs/appConfig', () => ({
   __esModule: true,
   AppConfig: {
     DISPLAY_NAME_MAX_LENGTH: selfIntroductionMaxLength,
