@@ -13,6 +13,8 @@ type Props = {
   ref: React.RefObject<ActionSheetRef | null>;
 };
 
+const TRANSPARENT_COLOR = 'transparent';
+
 export const EditProfileImageActionSheetModal: React.FC<Props> = ({ ref }) => {
   const { overlayBackground } = useTheme();
   const { t } = useTranslation();
@@ -109,7 +111,7 @@ export const EditProfileImageActionSheetModal: React.FC<Props> = ({ ref }) => {
 
 const styles = StyleSheet.create({
   actionSheetContainer: {
-    backgroundColor: 'transparent',
+    backgroundColor: TRANSPARENT_COLOR,
     height: 250,
     padding: 0,
   },

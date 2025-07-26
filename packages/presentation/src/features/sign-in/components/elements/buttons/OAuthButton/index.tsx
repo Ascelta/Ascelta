@@ -41,9 +41,10 @@ export const OAuthButton: React.FC<Props> = ({ type, icon, text, backgroundColor
     try {
       setLoadingDialogVisible(true);
       await signIn(type);
-    } catch (error: any) {
+    } catch (error: unknown) {
       // キャンセルエラーの場合は何も表示しない
-      if (error?.message?.includes('User cancelled') || error?.message?.includes('cancelled') || error?.message?.includes('org.openid.appauth.general error -3')) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      if (errorMessage.includes('User cancelled') || errorMessage.includes('cancelled') || errorMessage.includes('org.openid.appauth.general error -3')) {
         return; // Toast表示なしで終了
       }
       // その他のエラーは全て同じメッセージで表示（セキュリティ考慮）
