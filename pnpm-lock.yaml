@@ -247,8 +247,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.1.0))
       '@supabase/supabase-js':
-        specifier: 2.52.0
-        version: 2.52.0
+        specifier: 2.52.1
+        version: 2.52.1
       react-native-app-auth:
         specifier: 8.0.3
         version: 8.0.3(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.1.0))
@@ -1907,8 +1907,8 @@ packages:
   '@supabase/storage-js@2.7.1':
     resolution: {integrity: sha512-asYHcyDR1fKqrMpytAS1zjyEfvxuOIp1CIXX7ji4lHHcJKqyk+sLl/Vxgm4sN6u8zvuUtae9e4kDxQP2qrwWBA==}
 
-  '@supabase/supabase-js@2.52.0':
-    resolution: {integrity: sha512-jbs3CV1f2+ge7sgBeEduboT9v/uGjF22v0yWi/5/XFn5tbM8MfWRccsMtsDwAwu24XK8H6wt2LJDiNnZLtx/bg==}
+  '@supabase/supabase-js@2.52.1':
+    resolution: {integrity: sha512-IxYljprgl381j4SuFrW4JimjTb59WJ98DqxhMvEOJjpGJWuZ7kwttIWn7E4NBnvkYwZ948zJkJ7dSI6B0oO0Xw==}
 
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0':
     resolution: {integrity: sha512-b9MIk7yhdS1pMCZM8VeNfUlSKVRhsHZNMl5O9SfaX0l0t5wjdgu4IDzGB8bpnGBBOjGST3rRFVsaaEtI4W6f7g==}
@@ -8592,7 +8592,7 @@ snapshots:
     dependencies:
       '@supabase/node-fetch': 2.6.15
 
-  '@supabase/supabase-js@2.52.0':
+  '@supabase/supabase-js@2.52.1':
     dependencies:
       '@supabase/auth-js': 2.71.1
       '@supabase/functions-js': 2.4.5
