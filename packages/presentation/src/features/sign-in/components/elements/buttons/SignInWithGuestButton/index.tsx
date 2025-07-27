@@ -18,8 +18,8 @@ export function SignInWithGuestButton(): React.JSX.Element {
         </OutlinedButton>
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
-        <AlertDialog.Overlay />
-        <AlertDialog.Content>
+        <AlertDialog.Overlay key="guest-signin-overlay" />
+        <AlertDialog.Content key="guest-signin-content">
           <AlertDialog.Title>{t('GUEST_SIGN_IN_ALERT_TITLE')}</AlertDialog.Title>
           <AlertDialog.Description>{t('GUEST_SIGN_IN_ALERT_MESSAGE')}</AlertDialog.Description>
           <AlertDialog.Cancel asChild>

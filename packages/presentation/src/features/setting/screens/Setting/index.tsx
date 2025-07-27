@@ -16,7 +16,7 @@ export const Setting: React.FC = () => {
   };
   return (
     <>
-      <LoadingDialog visible={loadingDialogVisible} />
+      <LoadingDialog visible={loadingDialogVisible} dialogId="setting-signout" />
       <View flex={1} backgroundColor='$background'>
         <YStack flex={1} alignItems='center' justifyContent='center'>
           <AlertDialog native>
@@ -26,8 +26,8 @@ export const Setting: React.FC = () => {
               </OutlinedButton>
             </AlertDialog.Trigger>
             <AlertDialog.Portal>
-              <AlertDialog.Overlay />
-              <AlertDialog.Content>
+              <AlertDialog.Overlay key="setting-signout-overlay" />
+              <AlertDialog.Content key="setting-signout-content">
                 <AlertDialog.Title>{t('SIGN_OUT_MESSAGE')}</AlertDialog.Title>
                 <AlertDialog.Cancel asChild>
                   <Button>{t('CANCEL')}</Button>

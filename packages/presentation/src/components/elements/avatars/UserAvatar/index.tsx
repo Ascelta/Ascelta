@@ -23,6 +23,6 @@ export const UserAvatar: React.FC<Props> = ({ size, avatarUrl, isLoading, onPres
           </Avatar.Fallback>
         </Avatar>
       </ShimmerCircle>
-    </>
+</>
   );
 };

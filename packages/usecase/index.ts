@@ -5,3 +5,5 @@ export * from './src/usecases/SignInUseCase';
 export * from './src/usecases/SignOutUseCase';
 export * from './src/usecases/UpdateScreenNameUseCase';
 export * from './src/usecases/UpdateUserProfileUseCase';
+export * from './src/usecases/CreatePostUseCase';
+export * from './src/usecases/UploadPostMediaUseCase';

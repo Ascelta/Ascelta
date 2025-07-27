@@ -1,4 +1,5 @@
 export * from './home/screens/Home';
+export * from './post-create';
 export * from './profile-edit/screens/EditDisplayName';
 export * from './profile-edit/screens/EditScreenName';
 export * from './profile-edit/screens/EditSelfIntroduction';

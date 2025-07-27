@@ -4,7 +4,7 @@ import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, useTheme } from 'tamagui';
 import { AppConfig } from '@core/shared';
-import { EditDisplayName, EditScreenName, EditSelfIntroduction, ProfileEdit, Setting, SignIn, Theme, useAuth } from '@core/presentation';
+import { EditDisplayName, EditScreenName, EditSelfIntroduction, ProfileEdit, Setting, SignIn, Theme, useAuth, CreatePost } from '@core/presentation';
 import { BottomTabs } from './BottomTabs';
 
 const Stack = createNativeStackNavigator<{
@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator<{
   EditScreenName: undefined;
   EditDisplayName: undefined;
   EditSelfIntroduction: undefined;
+  CreatePost: undefined;
   Setting: undefined;
   NotFound: undefined;
 }>();
@@ -58,6 +59,7 @@ export const Navigation: React.FC<Props> = ({ theme }) => {
               EditScreenName: 'profile/edit/screen-name',
               EditDisplayName: 'profile/edit/display-name',
               EditSelfIntroduction: 'profile/edit/self-introduction',
+              CreatePost: 'post/create',
               Setting: 'setting',
               NotFound: '*',
             },
@@ -99,6 +101,7 @@ const SignedInStack = () => {
         <Stack.Screen name='EditScreenName' component={EditScreenName} />
         <Stack.Screen name='EditDisplayName' component={EditDisplayName} />
         <Stack.Screen name='EditSelfIntroduction' component={EditSelfIntroduction} />
+        <Stack.Screen name='CreatePost' component={CreatePost} />
         <Stack.Screen name='Setting' component={Setting} />
       </Stack.Group>
     </>

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
-import { Plus } from '@tamagui/lucide-icons';
 import { Separator, Spacer, View, XStack, YStack } from 'tamagui';
 import { PostCard } from '@core/presentation/components/elements/cards/PostCard';
+import { FloatingActionButton } from '@core/presentation/components/elements/buttons/FloatingActionButton';
 import { CollapsibleHeader } from '@core/presentation/components/layouts/headers/CollapsibleHeader';
 import Logo from '../../../../../assets/svgs/logo.svg';
 import { DEFAULT_HEADER_HEIGHT } from '../../../../configs';
@@ -37,15 +37,9 @@ export const Home: React.FC = () => {
     <View flex={1}>
       {/* 折りたたみヘッダー */}
       <CollapsibleHeader translateY={translateY}>
-        <XStack justifyContent='space-between' alignItems='center' width='100%' height='100%' paddingHorizontal={16}>
-          <YStack>
-            <Plus color='white' />
-          </YStack>
+        <XStack justifyContent='center' alignItems='center' width='100%' height='100%' paddingHorizontal={16}>
           <YStack>
             <Logo width={36} height={36} />
-          </YStack>
-          <YStack>
-            <Plus color='white' />
           </YStack>
         </XStack>
       </CollapsibleHeader>
@@ -69,6 +63,7 @@ export const Home: React.FC = () => {
         contentContainerStyle={{ paddingTop: DEFAULT_HEADER_HEIGHT }}
         scrollIndicatorInsets={{ top: DEFAULT_HEADER_HEIGHT - top, bottom: 0 }}
       />
+      <FloatingActionButton />
     </View>
   );
 };

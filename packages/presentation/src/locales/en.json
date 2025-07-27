@@ -83,5 +83,13 @@
       }
     }
   },
-  "setting": "Settings"
+  "setting": "Settings",
+  "OPEN_SETTINGS": "Open Settings",
+  "MEDIA_PICKER_ERROR_CAMERA_UNAVAILABLE_TITLE": "Camera Unavailable",
+  "MEDIA_PICKER_ERROR_CAMERA_UNAVAILABLE_DESCRIPTION": "Camera is not available on your device.",
+  "MEDIA_PICKER_ERROR_PERMISSION_TITLE": "Permission Required",
+  "MEDIA_PICKER_ERROR_PERMISSION_CAMERA_DESCRIPTION": "Camera access permission is required to use the camera. Please enable access permission in Settings.",
+  "MEDIA_PICKER_ERROR_PERMISSION_LIBRARY_DESCRIPTION": "Photo library access permission is required to use the photo library. Please enable access permission in Settings.",
+  "MEDIA_PICKER_ERROR_OTHERS_TITLE": "An Error Occurred",
+  "MEDIA_PICKER_ERROR_OTHERS_DESCRIPTION": "An unexpected error occurred. Please try again."
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { defaultConfig } from '@tamagui/config/v4';
 import { fireEvent, render } from '@testing-library/react';
-import { TamaguiProvider, createTamagui } from 'tamagui';
-import { DoneButton } from './index';
+import { createTamagui, TamaguiProvider } from 'tamagui';
+import { DoneButton } from '@core/presentation/components/elements/buttons/DoneButton';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({

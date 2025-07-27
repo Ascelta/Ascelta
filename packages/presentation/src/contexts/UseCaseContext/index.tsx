@@ -1,7 +1,7 @@
 import React, { ReactNode, createContext, useContext, useMemo } from 'react';
 import { useCaseContainer } from '@core/presentation/composition';
 import { UserStoreProvider } from '@core/presentation/stores/userStore';
-import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase, UpdateUserProfileUseCase } from '@core/usecase';
+import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase, UpdateUserProfileUseCase, CreatePostUseCase, UploadPostMediaUseCase } from '@core/usecase';
 
 export interface UseCaseContainer {
   readonly checkScreenNameExistenceUseCase: CheckScreenNameExistenceUseCase;
@@ -11,6 +11,8 @@ export interface UseCaseContainer {
   readonly signOutUseCase: SignOutUseCase;
   readonly updateScreenNameUseCase: UpdateScreenNameUseCase;
   readonly updateUserProfileUseCase: UpdateUserProfileUseCase;
+  readonly createPostUseCase: CreatePostUseCase;
+  readonly uploadPostMediaUseCase: UploadPostMediaUseCase;
 }
 
 const UseCaseContext = createContext<UseCaseContainer>(useCaseContainer);

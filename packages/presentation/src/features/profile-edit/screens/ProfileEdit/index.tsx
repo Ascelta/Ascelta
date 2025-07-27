@@ -8,8 +8,8 @@ import { CloseButton } from '@core/presentation/components/elements/buttons/Clos
 import { ShimmerRectangle } from '@core/presentation/components/elements/loadings/Shimmer';
 import { Header } from '@core/presentation/components/layouts/headers/Header';
 import { useAuth } from '@core/presentation/contexts/AuthContext';
+import { EditProfileImageActionSheetModal } from '@core/presentation/features/profile-edit/components/modals/EditProfileImageActionSheetModal';
 import { useUserStore } from '@core/presentation/stores/userStore';
-import { EditProfileImageActionSheetModal } from '../../components/modals/EditProfileImageActionSheetModal';
 
 export const ProfileEdit: React.FC = () => {
   const { t } = useTranslation();

@@ -83,5 +83,13 @@
       }
     }
   },
-  "setting": "設定"
+  "setting": "設定",
+  "OPEN_SETTINGS": "設定を開く",
+  "MEDIA_PICKER_ERROR_CAMERA_UNAVAILABLE_TITLE": "カメラが利用できません",
+  "MEDIA_PICKER_ERROR_CAMERA_UNAVAILABLE_DESCRIPTION": "お使いのデバイスでカメラが利用できません。",
+  "MEDIA_PICKER_ERROR_PERMISSION_TITLE": "アクセス許可が必要です",
+  "MEDIA_PICKER_ERROR_PERMISSION_CAMERA_DESCRIPTION": "カメラを使用するには、カメラへのアクセス許可が必要です。設定からアクセス許可を有効にしてください。",
+  "MEDIA_PICKER_ERROR_PERMISSION_LIBRARY_DESCRIPTION": "フォトライブラリを使用するには、写真へのアクセス許可が必要です。設定からアクセス許可を有効にしてください。",
+  "MEDIA_PICKER_ERROR_OTHERS_TITLE": "エラーが発生しました",
+  "MEDIA_PICKER_ERROR_OTHERS_DESCRIPTION": "予期しないエラーが発生しました。もう一度お試しください。"
 }

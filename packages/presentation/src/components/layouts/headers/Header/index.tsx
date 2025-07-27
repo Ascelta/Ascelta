@@ -11,7 +11,7 @@ const HeaderView = styled(View, {
 });
 
 type Props = {
-  title: string;
+  title?: string;
   leading?: React.ReactNode;
   action?: React.ReactNode;
 };
@@ -24,11 +24,13 @@ export const Header: React.FC<Props> = ({ title, leading, action }) => {
           <View flex={1} alignItems='flex-start'>
             <View>{leading}</View>
           </View>
-          <View alignItems='center'>
-            <Text fontSize='$7' fontWeight='bold'>
-              {title}
-            </Text>
-          </View>
+          {title && (
+            <View alignItems='center'>
+              <Text fontSize='$7' fontWeight='bold'>
+                {title}
+              </Text>
+            </View>
+          )}
           <View flex={1} alignItems='flex-end'>
             {action}
           </View>

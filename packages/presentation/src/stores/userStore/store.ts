@@ -65,12 +65,23 @@ export const createUserStore = (dependencies: UserStoreDependencies) => {
       },
 
       fetchUser: async (userId: string) => {
+        const currentUserData = get().userMap[userId];
+        
+        // 既にデータが存在するか、ローディング中の場合は早期リターン
+        if (currentUserData?.data || currentUserData?.isLoading) {
+          return;
+        }
+
         try {
           set(state => ({
             ...state,
             userMap: {
               ...state.userMap,
-              [userId]: { isInitialized: false, isLoading: true, data: undefined },
+              [userId]: { 
+                ...currentUserData, // 既存のデータを保持
+                isInitialized: false, 
+                isLoading: true 
+              },
             },
           }));
 

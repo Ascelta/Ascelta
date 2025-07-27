@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Spinner, Text } from 'tamagui';
+import { TextButton } from '@core/presentation/components/elements/buttons/TextButton';
 
 type Props = {
   disabled?: boolean;
@@ -8,23 +8,7 @@ type Props = {
   onDone: () => void;
 };
 
-export const DoneButton: React.FC<Props> = ({ disabled, isLoading, onDone }) => {
+export const DoneButton: React.FC<Props> = ({ onDone, ...props }) => {
   const { t } = useTranslation();
-  const onPress = () => {
-    if (disabled) {
-      return;
-    }
-    onDone();
-  };
-  return (
-    <>
-      {isLoading ? (
-        <Spinner testID='spinner' />
-      ) : (
-        <Text fontSize='$6' fontWeight='bold' opacity={disabled ? 0.2 : 1} onPress={onPress} paddingVertical='$2'>
-          {t('DONE')}
-        </Text>
-      )}
-    </>
-  );
+  return <TextButton text={t('DONE')} onPress={onDone} {...props} />;
 };
