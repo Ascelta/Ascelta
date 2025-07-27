@@ -1,4 +1,4 @@
-import { IdGeneratorImpl } from './index';
+import { IdGeneratorImpl } from '@core/infrastructure/generators/idGeneratorImpl';
 
 describe('IdGeneratorImpl', () => {
   const idGenerator = new IdGeneratorImpl();
@@ -29,7 +29,7 @@ describe('IdGeneratorImpl', () => {
     it('should generate UUIDs with correct length', () => {
       const uuid = idGenerator.generateUuid();
       
-      expect(uuid.length).toBe(36);
+      expect(uuid).toHaveLength(36);
     });
   });
 });
