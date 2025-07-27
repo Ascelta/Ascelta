@@ -20,21 +20,30 @@ const TabBar: React.FC<TabBarProps<string> & { offset: SharedValue<number> }> = 
   const { t } = useTranslation();
   const { width } = useWindowDimensions();
   const { color, subtle, primary, secondary, accent } = useTheme();
-  const animatedUnderline = useAnimatedStyle(() => ({
-    transform: [
-      {
-        translateX: offset.value,
-      },
-    ],
-  }));
+  const animatedUnderline = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [
+        {
+          translateX: offset.value,
+        },
+      ],
+    };
+  });
 
-  const animatedPostTabText = useAnimatedStyle(() => ({
-    color: interpolateColor(offset.value, [0, width / 2], [color?.val, subtle?.val]) as string,
-  }));
+  const animatedPostTabText = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      color: interpolateColor(offset.value, [0, width / 2], [color?.val, subtle?.val]) as string,
+    };
+  });
 
-  const animatedFavoriteTabText = useAnimatedStyle(() => ({
-    color: interpolateColor(offset.value, [0, width / 2], [subtle?.val, color?.val]) as string,
-  }));
+  const animatedFavoriteTabText = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      color: interpolateColor(offset.value, [0, width / 2], [subtle?.val, color?.val]) as string,
+    };
+  });
 
   return (
     <View width='100%' height={40} backgroundColor='$background' borderBottomColor='$borderColor' borderBottomWidth={1}>
@@ -107,10 +116,10 @@ export const Profile: React.FC = () => {
         allowHeaderOverscroll
       >
         <Tabs.Tab name='Posts'>
-          <Tabs.FlashList data={DATA} renderItem={renderItem} ListFooterComponent={() => <Spacer size='$16' />} ItemSeparatorComponent={() => <Separator />} keyExtractor={identity} />
+          <Tabs.FlashList data={DATA} renderItem={renderItem} estimatedItemSize={110} ListFooterComponent={() => <Spacer size='$16' />} ItemSeparatorComponent={() => <Separator />} keyExtractor={identity} />
         </Tabs.Tab>
         <Tabs.Tab name='Favorites'>
-          <Tabs.FlashList data={DATA} renderItem={renderItem} ListFooterComponent={() => <Spacer size='$16' />} ItemSeparatorComponent={() => <Separator />} keyExtractor={identity} />
+          <Tabs.FlashList data={DATA} renderItem={renderItem} estimatedItemSize={110} ListFooterComponent={() => <Spacer size='$16' />} ItemSeparatorComponent={() => <Separator />} keyExtractor={identity} />
         </Tabs.Tab>
       </Tabs.Container>
     </>

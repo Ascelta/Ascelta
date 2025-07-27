@@ -17,10 +17,13 @@ export const CollapsibleHeader: React.FC<Props> = ({ children, height = DEFAULT_
   const blurType = useColorScheme() === 'dark' ? 'dark' : 'xlight';
   const { top } = useSafeAreaInsets();
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: translateY?.value ?? 0 }],
-    opacity: translateY ? interpolate(translateY.value, [-(height / 2), 0], [0, 1], Extrapolation.CLAMP) : 1,
-  }));
+  const animatedStyle = useAnimatedStyle(() => {
+    const translateYValue = translateY?.value ?? 0;
+    return {
+      transform: [{ translateY: translateYValue }],
+      opacity: translateY ? interpolate(translateYValue, [-(height / 2), 0], [0, 1], Extrapolation.CLAMP) : 1,
+    };
+  });
 
   return (
     <Animated.View style={[styles.header, { height }, animatedStyle]}>

@@ -1,16 +1,24 @@
+import React from 'react';
 import { faker } from '@faker-js/faker';
 import { act, renderHook } from '@testing-library/react';
+import { SuiteUser, VUserDetails } from '@core/domain';
+import { UserStoreProvider, useUserStore } from './index';
+
 // Mock fakeVUserDetail since @core/shared is not available in tests
-const fakeVUserDetail = () => ({
-  id: 'test-id',
+const fakeVUserDetail = (): VUserDetails => ({
   screen_name: 'test_screen',
   display_name: 'Test User',
   avatar_url: 'https://example.com/avatar.jpg',
   self_introduction: 'Test introduction',
+  created_at: '2023-01-01T00:00:00Z',
+  deleted_at: null,
+  favorite_posts: {},
+  follow_count: 0,
+  follower_count: 0,
+  user_id: 'test-user-id',
+  latest_posts: [],
+  updated_at: '2023-01-01T00:00:00Z',
 });
-
-import { SuiteUser } from '@core/domain';
-import { useUserStore } from './index';
 
 // モックの設定
 jest.mock('../../contexts/UseCaseContext', () => {
@@ -40,6 +48,17 @@ const mockFindSuiteUserUseCase = require('../../contexts/UseCaseContext').mockFi
 const mockUpdateScreenNameUseCase = require('../../contexts/UseCaseContext').mockUpdateScreenNameUseCase;
 const mockUpdateUserProfileUseCase = require('../../contexts/UseCaseContext').mockUpdateUserProfileUseCase;
 
+const wrapper = ({ children }: { children: React.ReactNode }) => {
+  return React.createElement(UserStoreProvider, {
+    dependencies: {
+      findSuiteUserUseCase: mockFindSuiteUserUseCase,
+      updateScreenNameUseCase: mockUpdateScreenNameUseCase,
+      updateUserProfileUseCase: mockUpdateUserProfileUseCase,
+    },
+    children,
+  });
+};
+
 describe('useUserStore', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -49,7 +68,7 @@ describe('useUserStore', () => {
     describe('正常系', () => {
       it('指定したユーザーIDのローディング状態を更新すること', () => {
         const userId = faker.string.uuid();
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // 初期状態の確認
         expect(result.current.userMap[userId]).toBeUndefined();
@@ -72,7 +91,7 @@ describe('useUserStore', () => {
       it('指定したユーザーIDのエラー状態を更新すること', () => {
         const userId = faker.string.uuid();
         const mockError = new Error('Test error');
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // 初期状態の確認
         expect(result.current.userMap[userId]).toBeUndefined();
@@ -99,7 +118,7 @@ describe('useUserStore', () => {
     describe('正常系', () => {
       it('ユーザー情報の取得に成功すること', async () => {
         mockFindSuiteUserUseCase.execute.mockResolvedValue(mockSuiteUser);
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // 初期状態の確認
         expect(result.current.userMap[mockUserId]).toBeUndefined();
@@ -126,7 +145,7 @@ describe('useUserStore', () => {
       it('FindSuiteUserUseCase#execute でエラーが発生した場合は、ユーザー情報の取得に失敗すること', async () => {
         const mockError = new Error('Failed to fetch user');
         mockFindSuiteUserUseCase.execute.mockRejectedValue(mockError);
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // fetchUserの実行
         await act(async () => {
@@ -156,7 +175,7 @@ describe('useUserStore', () => {
     describe('正常系', () => {
       it('スクリーンネームの更新に成功すること', async () => {
         mockUpdateScreenNameUseCase.execute.mockResolvedValue(undefined);
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // 初期データの設定
         act(() => {
@@ -194,7 +213,7 @@ describe('useUserStore', () => {
       it('UpdateScreenNameUseCase#execute でエラーが発生した場合は、更新に失敗すること', async () => {
         const mockError = new Error('Failed to update screen name');
         mockUpdateScreenNameUseCase.execute.mockRejectedValue(mockError);
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // 初期データの設定
         act(() => {
@@ -227,7 +246,7 @@ describe('useUserStore', () => {
 
       it('ユーザーデータが存在しない場合にエラーが発生すること', async () => {
         const userId = 'not-exists-user-id';
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // updateScreenNameの実行
         await act(async () => {
@@ -250,7 +269,7 @@ describe('useUserStore', () => {
           display_name: displayName,
           self_introduction: selfIntroduction,
         });
-        const { result } = renderHook(() => useUserStore());
+        const { result } = renderHook(() => useUserStore(state => state), { wrapper });
 
         // 初期データの設定
         act(() => {

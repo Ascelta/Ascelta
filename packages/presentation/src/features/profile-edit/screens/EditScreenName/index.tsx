@@ -82,8 +82,7 @@ export const EditScreenName: React.FC = () => {
 
     timer.current = setTimeout(async () => {
       try {
-        const exists = await checkScreenNameExistenceUseCase.execute(text);
-        setStatus(exists ? 'exists' : 'success');
+        setStatus((await checkScreenNameExistenceUseCase.execute(text)) ? 'exists' : 'success');
       } finally {
         setIsChecking(false);
       }

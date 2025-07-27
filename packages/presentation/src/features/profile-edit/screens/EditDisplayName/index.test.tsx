@@ -131,7 +131,7 @@ describe('EditDisplayName', () => {
 
       // updateUserProfileが正しい引数で呼ばれたことを確認
       expect(mockUpdateUserProfile).toHaveBeenCalledTimes(1);
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, 'new_display_name', undefined, undefined);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockUserId, undefined, undefined, 'new_display_name', undefined);
 
       jest.useRealTimers();
       waitFor(() => {

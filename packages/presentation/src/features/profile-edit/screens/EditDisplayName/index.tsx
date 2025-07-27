@@ -44,7 +44,7 @@ export const EditDisplayName: React.FC = () => {
       return;
     }
     if (displayName !== newDisplayName) {
-      await updateUserProfile(userId, undefined, newDisplayName, undefined, undefined);
+      await updateUserProfile(userId, undefined, undefined, newDisplayName, undefined);
     }
     back();
   };

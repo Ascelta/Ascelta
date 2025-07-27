@@ -1,6 +1,7 @@
-import React, { ReactNode, createContext, useContext } from 'react';
+import React, { ReactNode, createContext, useContext, useMemo } from 'react';
+import { useCaseContainer } from '@core/presentation/composition';
+import { UserStoreProvider } from '@core/presentation/stores/userStore';
 import { CheckScreenNameExistenceUseCase, FindSuiteUserUseCase, GetCurrentUserIdUseCase, SignInUseCase, SignOutUseCase, UpdateScreenNameUseCase, UpdateUserProfileUseCase } from '@core/usecase';
-import { useCaseContainer } from '../../composition';
 
 export interface UseCaseContainer {
   readonly checkScreenNameExistenceUseCase: CheckScreenNameExistenceUseCase;
@@ -19,8 +20,27 @@ type ProviderProps = {
   children: ReactNode;
 };
 export const UseCaseProvider: React.FC<ProviderProps> = ({ container = {}, children }) => {
-  const value = { ...useCaseContainer, ...container };
-  return <UseCaseContext.Provider value={value}>{children}</UseCaseContext.Provider>;
+  const value = useMemo(
+    () => ({ ...useCaseContainer, ...container }),
+    [container]
+  );
+
+  const userStoreDependencies = useMemo(
+    () => ({
+      findSuiteUserUseCase: value.findSuiteUserUseCase,
+      updateScreenNameUseCase: value.updateScreenNameUseCase,
+      updateUserProfileUseCase: value.updateUserProfileUseCase,
+    }),
+    [value.findSuiteUserUseCase, value.updateScreenNameUseCase, value.updateUserProfileUseCase]
+  );
+
+  return (
+    <UseCaseContext.Provider value={value}>
+      <UserStoreProvider dependencies={userStoreDependencies}>
+        {children}
+      </UserStoreProvider>
+    </UseCaseContext.Provider>
+  );
 };
 
 export const useUseCases = () => useContext(UseCaseContext);

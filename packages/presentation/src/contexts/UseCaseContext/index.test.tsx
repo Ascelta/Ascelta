@@ -5,11 +5,19 @@ import { UseCaseProvider, useUseCases } from './index.tsx';
 
 jest.mock('../../composition', () => ({
   useCaseContainer: {
+    checkScreenNameExistenceUseCase: { execute: jest.fn() },
     findSuiteUserUseCase: { execute: jest.fn() },
     getCurrentUserIdUseCase: { execute: jest.fn() },
     signInUseCase: { execute: jest.fn() },
     signOutUseCase: { execute: jest.fn() },
+    updateScreenNameUseCase: { execute: jest.fn() },
+    updateUserProfileUseCase: { execute: jest.fn() },
   },
+}));
+
+// UserStoreProviderのモック
+jest.mock('../../stores/userStore', () => ({
+  UserStoreProvider: ({ children }: { children: React.ReactNode }) => children,
 }));
 
 describe('<UseCaseProvider/>', () => {

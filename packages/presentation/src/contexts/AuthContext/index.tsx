@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, createContext, useContext, useEffect, useState } from 'react';
+import React, { PropsWithChildren, createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { authRepository } from '@core/infrastructure';
+import { useUseCases } from '@core/presentation/contexts/UseCaseContext';
 import { AuthProviderType } from '@core/domain';
-import { useUseCases } from '../UseCaseContext';
 
 interface Props {
   userId: string | undefined;
@@ -28,11 +28,18 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     });
   }, []);
 
-  const value: Props = {
-    userId: userId,
-    signIn: async type => signInUseCase.execute(type),
-    signOut: async () => signOutUseCase.execute(),
-  };
+  const signIn = useCallback(async (type: AuthProviderType) => signInUseCase.execute(type), [signInUseCase]);
+
+  const signOut = useCallback(async () => signOutUseCase.execute(), [signOutUseCase]);
+
+  const value: Props = useMemo(
+    () => ({
+      userId,
+      signIn,
+      signOut,
+    }),
+    [userId, signIn, signOut],
+  );
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 };
