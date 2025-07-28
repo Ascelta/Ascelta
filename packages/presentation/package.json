@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/core": "7.28.0",
     "@babel/preset-env": "7.28.0",
-    "@babel/runtime": "7.27.6",
+    "@babel/runtime": "7.28.2",
     "@react-native/babel-preset": "0.80.2",
     "@react-native/typescript-config": "0.80.2",
     "@testing-library/jest-dom": "6.6.4",
