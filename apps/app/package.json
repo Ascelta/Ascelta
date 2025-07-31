@@ -31,7 +31,7 @@
     "@tamagui/lucide-icons": "1.129.5",
     "react": "19.0.0",
     "react-hook-form": "7.61.1",
-    "react-native": "0.79.2",
+    "react-native": "0.80.2",
     "react-native-actions-sheet": "0.9.7",
     "react-native-app-auth": "8.0.3",
     "react-native-bootsplash": "6.3.10",
