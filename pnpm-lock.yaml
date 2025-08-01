@@ -90,8 +90,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/shared
       '@hookform/resolvers':
-        specifier: 5.2.0
-        version: 5.2.0(react-hook-form@7.61.1(react@19.0.0))
+        specifier: 5.2.1
+        version: 5.2.1(react-hook-form@7.61.1(react@19.0.0))
       '@react-native-async-storage/async-storage':
         specifier: 2.2.0
         version: 2.2.0(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))
@@ -292,8 +292,8 @@ importers:
         specifier: 5.1.8
         version: 5.1.8(@types/react@19.1.8)(react-native-gesture-handler@2.27.2(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       '@hookform/resolvers':
-        specifier: 5.2.0
-        version: 5.2.0(react-hook-form@7.61.1(react@19.0.0))
+        specifier: 5.2.1
+        version: 5.2.1(react-hook-form@7.61.1(react@19.0.0))
       '@react-native-community/blur':
         specifier: 4.4.1
         version: 4.4.1(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
@@ -1392,8 +1392,8 @@ packages:
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
 
-  '@hookform/resolvers@5.2.0':
-    resolution: {integrity: sha512-3YI+VqxJQH6ryRWG+j3k+M19Wf37LeSKJDg6Vdjq6makLOqZGYn77iTaYLMLpVi/uHc1N6OTCmcxJwhOQV979g==}
+  '@hookform/resolvers@5.2.1':
+    resolution: {integrity: sha512-u0+6X58gkjMcxur1wRWokA7XsiiBJ6aK17aPZxhkoYiK5J+HcTx0Vhu9ovXe6H+dVpO6cjrn2FkJTryXEMlryQ==}
     peerDependencies:
       react-hook-form: ^7.55.0
 
@@ -7869,7 +7869,7 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@hookform/resolvers@5.2.0(react-hook-form@7.61.1(react@19.0.0))':
+  '@hookform/resolvers@5.2.1(react-hook-form@7.61.1(react@19.0.0))':
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.61.1(react@19.0.0)

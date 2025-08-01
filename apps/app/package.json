@@ -19,7 +19,7 @@
     "@codeherence/react-native-header": "0.14.0",
     "@core/presentation": "workspace:*",
     "@core/shared": "workspace:*",
-    "@hookform/resolvers": "5.2.0",
+    "@hookform/resolvers": "5.2.1",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/blur": "4.4.1",
     "@react-navigation/bottom-tabs": "7.4.4",

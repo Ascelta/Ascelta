@@ -12,7 +12,7 @@
     "@core/shared": "workspace:*",
     "@core/usecase": "workspace:*",
     "@gorhom/bottom-sheet": "5.1.8",
-    "@hookform/resolvers": "5.2.0",
+    "@hookform/resolvers": "5.2.1",
     "@react-native-community/blur": "4.4.1",
     "@shopify/flash-list": "1.8.3",
     "@tamagui/config": "1.129.5",
