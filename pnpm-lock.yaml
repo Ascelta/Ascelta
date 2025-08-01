@@ -150,8 +150,8 @@ importers:
         specifier: 8.2.1
         version: 8.2.1(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-keyboard-controller:
-        specifier: 1.18.1
-        version: 1.18.1(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+        specifier: 1.18.2
+        version: 1.18.2(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-linear-gradient:
         specifier: 2.8.3
         version: 2.8.3(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
@@ -343,8 +343,8 @@ importers:
         specifier: 8.2.1
         version: 8.2.1(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-keyboard-controller:
-        specifier: 1.18.1
-        version: 1.18.1(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
+        specifier: 1.18.2
+        version: 1.18.2(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
       react-native-linear-gradient:
         specifier: 2.8.3
         version: 2.8.3(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0)
@@ -5485,8 +5485,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  react-native-keyboard-controller@1.18.1:
-    resolution: {integrity: sha512-5zBRLNq4BDmMIs7G/fe4udcmCu9uxnRIQ+WciGPwL2TGaIrAC+mngiFzPO8rm8DzN1ghDrDPzmy8wV2GEwYLMw==}
+  react-native-keyboard-controller@1.18.2:
+    resolution: {integrity: sha512-Cvg46QjKiI+xxeu8mZrNwAkcyvbT7ZCttp2ePW4O/V7jgvTkRfvz4Pm5sRK1C4yozgpwQRKCCIAW/oOErH1qrA==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -13355,7 +13355,7 @@ snapshots:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
 
-  react-native-keyboard-controller@1.18.1(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
+  react-native-keyboard-controller@1.18.2(react-native-reanimated@3.18.0(@babel/core@7.28.0)(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-native: 0.79.2(@babel/core@7.28.0)(@react-native-community/cli@18.0.0(typescript@5.8.3))(@types/react@19.1.8)(react@19.0.0)
